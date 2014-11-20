@@ -1,0 +1,101 @@
+
+
+
+/* ----------- Fonts -----------*/
+/*
+@font-face
+{
+	font-family:mavenRegular;
+	src:url(../fonts/MavenProRegular.otf) format("opentype");
+}
+
+@font-face
+{
+	font-family:mavenBold;
+	src:url(../fonts/MavenProBold.otf) format("opentype");
+}
+*/
+
+a, a:link, a:visited, a:hover, a:active   
+{
+    color:#95a7bc;
+    text-decoration: underline;
+}
+
+
+
+body, html
+{
+	
+	margin: 0;
+	padding: 0;
+	height:100%;
+	
+	font-family:Helvetica, Arial, sans-serif;
+	color:#000000;
+	
+	background:#ffffff;
+	
+}
+
+#stage
+{
+	width: 768px;
+	height: 768px;
+	background-color: #66cc66;
+	padding:0px;
+	margin:0px;
+	/*overflow: hidden;*/
+}
+
+#scenes
+{
+	list-style:none;
+	display:inline-block;
+	background-color: grey;
+	width:1536px;
+	padding:0px;
+	margin:0px;
+}
+
+.scene
+{
+	padding: 0px;
+	margin:0px;
+	float:left;
+	height:768px;
+	width: 768px;
+}
+
+.scene_content
+{
+	padding: 0px;
+	margin:0px;
+}
+
+.scene_content img
+{
+	padding: 0px;
+	margin:0px;
+}
+
+
+.question
+{
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*small width*/
+@media only screen and (min-width:769px) and (max-width:875px)
+{
+	
+}
+
+/*mobile styles*/
+@media only screen and (max-width:767px)
+{
+	
+	
+	
+}
