@@ -40,12 +40,15 @@ body, html
 
 #stage
 {
-	width: 768px;
-	height: 768px;
+	width:100%;
+	height:100%;
+	max-width: 768px;
+	max-height: 768px;
 	background-color: #66cc66;
 	padding:0px;
 	margin:0px;
-	/*overflow: hidden;*/
+	overflow: hidden;
+
 }
 
 #scenes
@@ -53,22 +56,51 @@ body, html
 	list-style:none;
 	display:inline-block;
 	background-color: grey;
-	width:1536px;
+	width:300%;
+	height:300%;
+	max-width: 2304px;
+	max-height: 2304px;
 	padding:0px;
 	margin:0px;
+
+	-webkit-transform-style:preserve-3d;
+	-webkit-backface-visibility:hidden;
+	-webkit-perspective:1000;
+  	-webkit-transition:-webkit-transform 600ms ease-out;
+
+
+  	-ms-transform-style:preserve-3d;
+  	-ms-backface-visibility:hidden;
+  	-ms-perspective:1000;
+  	-ms-transition:-ms-transform 600ms ease-out;
+  
+
+  	transform-style:preserve-3d;
+  	backface-visibility:hidden;
+  	perspective:1000;
+  	transition:transform 600ms ease-out;
 }
 
 .scene
 {
+
+	width:100%;
+	height:100%;
+	max-width: 768px;
+	max-height: 768px;
+
 	padding: 0px;
 	margin:0px;
 	float:left;
-	height:768px;
-	width: 768px;
+	position: relative;
 }
 
 .scene_content
 {
+	width:100%;
+	height:100%;
+	max-width: 768px;
+	max-height: 768px;
 	padding: 0px;
 	margin:0px;
 }
@@ -84,6 +116,23 @@ body, html
 {
 	position: absolute;
 	background-color: rgba(0, 0, 0, 0.5);
+	
+	max-width: 615px;
+	max-height: 615px;
+	width:80%;
+	height:80%;
+	
+	margin-left:10%;
+	margin-top: 10%;
+	
+	
+}
+
+.answer
+{
+	background-color: white;
+	margin:10px;
+	cursor: pointer;
 }
 
 /*small width*/

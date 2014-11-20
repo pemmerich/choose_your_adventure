@@ -8,10 +8,10 @@
                 <extra x="10" y="10" height="200" width="100">extra1.png</extra>
             </extras>
             <question><![CDATA[Scene one question]]></question>
-            <answer target="scene_two"><![CDATA[Answer One]]></answer>
-            <answer target="scene_three"><![CDATA[Answer Two]]></answer>
-            <answer target="scene_four"><![CDATA[Answer Three]]></answer>
-            <answer target="scene_two"><![CDATA[Answer Four]]></answer>
+            <answer target="scene_one"><![CDATA[Answer One]]></answer>
+            <answer target="scene_two"><![CDATA[Answer Two]]></answer>
+            <answer target="scene_three"><![CDATA[Answer Three]]></answer>
+            <answer target="scene_four"><![CDATA[Answer Four]]></answer>
         </scene> 
 
         <scene id="scene_two">
@@ -21,10 +21,10 @@
                 <extra x="10" y="10" height="200" width="100">extra1.png</extra>
             </extras>
             <question><![CDATA[Scene two question]]></question>
-            <answer target="scene_two"><![CDATA[Answer One]]></answer>
-            <answer target="scene_three"><![CDATA[Answer Two]]></answer>
-            <answer target="scene_four"><![CDATA[Answer Three]]></answer>
-            <answer target="scene_two"><![CDATA[Answer Four]]></answer>  
+            <answer target="scene_one"><![CDATA[Answer One]]></answer>
+            <answer target="scene_two"><![CDATA[Answer Two]]></answer>
+            <answer target="scene_three"><![CDATA[Answer Three]]></answer>
+            <answer target="scene_four"><![CDATA[Answer Four]]></answer>
         </scene> 
 
         <scene id="scene_three">
@@ -34,10 +34,10 @@
                 <extra x="10" y="10" height="200" width="100">extra1.png</extra>
             </extras>
             <question><![CDATA[Scene three question]]></question>
-            <answer target="scene_two"><![CDATA[Answer One]]></answer>
-            <answer target="scene_three"><![CDATA[Answer Two]]></answer>
-            <answer target="scene_four"><![CDATA[Answer Three]]></answer>
-            <answer target="scene_two"><![CDATA[Answer Four]]></answer>  
+            <answer target="scene_one"><![CDATA[Answer One]]></answer>
+            <answer target="scene_two"><![CDATA[Answer Two]]></answer>
+            <answer target="scene_three"><![CDATA[Answer Three]]></answer>
+            <answer target="scene_four"><![CDATA[Answer Four]]></answer> 
         </scene> 
 
         <scene id="scene_four">
@@ -47,10 +47,10 @@
                 <extra x="10" y="10" height="200" width="100">extra1.png</extra>
             </extras>
             <question><![CDATA[Scene four question]]></question>
-            <answer target="scene_two"><![CDATA[Answer One]]></answer>
-            <answer target="scene_three"><![CDATA[Answer Two]]></answer>
-            <answer target="scene_four"><![CDATA[Answer Three]]></answer>
-            <answer target="scene_two"><![CDATA[Answer Four]]></answer> 
+            <answer target="scene_one"><![CDATA[Answer One]]></answer>
+            <answer target="scene_two"><![CDATA[Answer Two]]></answer>
+            <answer target="scene_three"><![CDATA[Answer Three]]></answer>
+            <answer target="scene_four"><![CDATA[Answer Four]]></answer>
         </scene> 
 
     </scenes>
