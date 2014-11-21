@@ -8,6 +8,7 @@ function Scene(xml)
   self.background=xml.find("background").text();
   self.question = xml.find("question").text();
   self.answers = [];
+  self.story = xml.find("story").text();
   $(xml).find("answer").each(function (i,elem) {
 
     	var text = $(this).text();

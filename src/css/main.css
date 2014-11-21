@@ -2,19 +2,20 @@
 
 
 /* ----------- Fonts -----------*/
-/*
+
 @font-face
 {
-	font-family:mavenRegular;
-	src:url(../fonts/MavenProRegular.otf) format("opentype");
+	font-family:Equestria;
+	src:url(../fonts/Equestria.otf) format("opentype");
 }
 
 @font-face
 {
-	font-family:mavenBold;
-	src:url(../fonts/MavenProBold.otf) format("opentype");
+	font-family:PonyFont;
+	src:url(../fonts/ponyfont.ttf) format("opentype");
 }
-*/
+
+
 
 a, a:link, a:visited, a:hover, a:active   
 {
@@ -31,7 +32,7 @@ body, html
 	padding: 0;
 	height:100%;
 	
-	font-family:Helvetica, Arial, sans-serif;
+	font-family:PonyFont, Equestria, Helvetica, Arial, sans-serif;
 	color:#000000;
 	
 	background:#ffffff;
@@ -105,37 +106,180 @@ body, html
 	max-height: 768px;
 	padding: 0px;
 	margin:0px;
+	overflow: hidden;
 }
 
 .scene_content img
 {
 	/* this may need to come out once we switch imgs depending on screen size*/
+	min-width: 400px; /* this means the image will be sized down for smaller screens, but not completely */
 	width:100%;
 	height:100%;
 	padding: 0px;
 	margin:0px;
+
 }
 
+.close
+{
+	position: absolute;
+	right:2%;
+	width:40px;
+	height:40px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.25);
+	border-radius: 20px;
+}
+.close:after
+{
+	content: "X";
+	display: block;
+	position: relative;
+	text-align: center;
+	line-height: 44px;
+    width: 100%;
+
+}
+
+.controls
+{
+	position: absolute;
+	margin:3%;
+	right:0px;
+	width:90px;
+	height:40px;
+	color: white;
+	background-color: rgba(65, 32, 108, 0.5);
+	border-radius: 20px;
+	padding: 5px;
+}
+
+.story_btn
+{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	background-color: rgba(225, 135, 76, 0.5);;
+	border-radius: 20px;
+	margin-left: 5px;
+}
+
+.story_btn:after
+{
+	content: "S";
+	display: block;
+	position: relative;
+	text-align: center;
+	line-height: 44px;
+    width: 100%;
+
+}
+
+.choose_btn
+{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	background-color: rgba(78, 32, 45, 0.5);
+	border-radius: 20px;
+}
+
+.choose_btn:after
+{
+	content: "C";
+	display: block;
+	position: relative;
+	text-align: center;
+	line-height: 44px;
+    width: 100%;
+
+}
+
+.story
+{
+	position: absolute;
+	color:white;
+	background-color: rgba(0, 0, 0, 0.5);
+	max-width: 691px;
+	max-height: 691px;
+	width:90%;
+	height:90%;
+	margin:3%;
+	padding:2%;
+	margin-right:1%; 
+	margin-left: 1%;
+	padding-left:4%;
+	padding-right: 4%;
+	border-radius: 25px;
+	font-size: 22px;
+
+	-webkit-transform-style:preserve-3d;
+	-webkit-backface-visibility:hidden;
+	-webkit-perspective:1000;
+  	-webkit-transition:-webkit-transform 600ms ease-out;
+
+
+  	-ms-transform-style:preserve-3d;
+  	-ms-backface-visibility:hidden;
+  	-ms-perspective:1000;
+  	-ms-transition:-ms-transform 600ms ease-out;
+  
+
+  	transform-style:preserve-3d;
+  	backface-visibility:hidden;
+  	perspective:1000;
+  	transition:transform 600ms ease-out;
+}
 
 .question
 {
 	position: absolute;
 	color:white;
 	background-color: rgba(0, 0, 0, 0.5);
-	max-width: 615px;
-	max-height: 615px;
+	max-width: 691px;
+	max-height: 691px;
 	width:90%;
 	height:90%;
-	margin:5%;
+	margin:3%;
+	padding:2%;
+	margin-right:1%; 
+	margin-left: 1%;
+	padding-left:4%;
+	padding-right: 4%;
+	border-radius: 25px;
+	font-size: 22px;
 	
-	
+	-webkit-transform-style:preserve-3d;
+	-webkit-backface-visibility:hidden;
+	-webkit-perspective:1000;
+  	-webkit-transition:-webkit-transform 600ms ease-out;
+
+
+  	-ms-transform-style:preserve-3d;
+  	-ms-backface-visibility:hidden;
+  	-ms-perspective:1000;
+  	-ms-transition:-ms-transform 600ms ease-out;
+  
+
+  	transform-style:preserve-3d;
+  	backface-visibility:hidden;
+  	perspective:1000;
+  	transition:transform 600ms ease-out;
 }
 
+.question ul
+{
+	list-style:none;
+	margin:0px;
+	margin-top: 5%;
+	padding: 0px;
+}
 .answer
 {
 	color: black;
 	background-color: white;
 	margin:10px;
+	min-height: 40px;
 	cursor: pointer;
 }
 
