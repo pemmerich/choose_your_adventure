@@ -222,7 +222,7 @@ function showStory(id)
     	"transform":"translateX(0px) translateY(0px) translateZ(0px)"
 		});
 		$('.controls').hide();
-	},10);
+	},100);
 	
 }
 
@@ -238,7 +238,7 @@ function showQuestion(id)
     	"transform":"translateX(0px) translateY(0px) translateZ(0px)"
 		});
 		$('.controls').hide();
-	},10);
+	},100);
 }
 
 function adjustLayout()
