@@ -56,10 +56,12 @@ body, html
 	list-style:none;
 	display:inline-block;
 	background-color: grey;
+	/*
 	width:300%;
 	height:300%;
 	max-width: 2304px;
 	max-height: 2304px;
+	*/
 	padding:0px;
 	margin:0px;
 
@@ -84,8 +86,8 @@ body, html
 .scene
 {
 
-	width:100%;
-	height:100%;
+	/*width:100%;
+	height:100%;*/
 	max-width: 768px;
 	max-height: 768px;
 
@@ -107,6 +109,9 @@ body, html
 
 .scene_content img
 {
+	/* this may need to come out once we switch imgs depending on screen size*/
+	width:100%;
+	height:100%;
 	padding: 0px;
 	margin:0px;
 }
@@ -119,11 +124,11 @@ body, html
 	
 	max-width: 615px;
 	max-height: 615px;
-	width:80%;
-	height:80%;
 	
-	margin-left:10%;
-	margin-top: 10%;
+	width:90%;
+	height:90%;
+	
+	margin:5%;
 	
 	
 }

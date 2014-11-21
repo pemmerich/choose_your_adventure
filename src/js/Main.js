@@ -1,6 +1,7 @@
 
 var scenes=[];
 var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
+var cols;
 
 document.write("<script src='js/Scene.js' type='text/javascript' charset='UTF-8'></script>");
 
@@ -26,7 +27,9 @@ $(document).ready
 $(window).resize(function() {
 	var viewportWidth = $(window).width();
 	var viewportHeight = $(window).height();
-	setScrollerHeight();
+	
+	adjustLayout();
+
 	console.log("Viewport Width = "+viewportWidth);
 	console.log("Viewport Height = "+viewportHeight);
 	//update survey container size
@@ -35,9 +38,9 @@ $(window).resize(function() {
 });
 
 function xmlParser(xml) {
-	 var self=this;
-    
- 
+	var self=this;
+    cols = $(xml).find("scenes").attr('cols');
+    console.log("cols = "+cols);
     $(xml).find("scene").each(function (i,elem) {
     	
     	var scene = new Scene($(this));
@@ -55,6 +58,7 @@ function init()
 	var self=this;
 	var stageHeight = $('#stage').height();
 	var stageWidth = $('#stage').width();
+
 	//layout scenes
 	$(scenes).each(function (i,elem) {
 		 //place the scenes
@@ -76,6 +80,8 @@ function init()
 
 	 	 });
 	 });
+
+	adjustLayout();
 	
 }
 
@@ -117,23 +123,15 @@ function goToScene(id)
     	"OTransform":"translateX("+destX+"px) translateY("+destY+"px) translateZ(0px)",
     	"transform":"translateX("+destX+"px) translateY("+destY+"px) translateZ(0px)"
 	});
+}
+
+function adjustLayout()
+{
+	var stageHeight = $('#stage').height();
+	var stageWidth = $('#stage').width();
+
+	$('.scene').css({"width":stageWidth+"px","height":stageHeight+"px"});
+	$('#scenes').css({"width":(cols*stageWidth)+"px"});
 
 
-	/*
-	$('#stage').css({
-    	"webkitTransform":"translate("+destX+"px,"+destY+"px)",
-    	"MozTransform":"translate("+destX+"px,"+destY+"px)",
-    	"msTransform":"translate("+destX+"px,"+destY+"px)",
-    	"OTransform":"translate("+destX+"px,"+destY+"px)",
-    	"transform":"translate("+destX+"px,"+destY+"px)"
-	});
-
-	$(element).css({
-    	"webkitTransform":"",
-    	"MozTransform":"",
-    	"msTransform":"",
-    	"OTransform":"",
-    	"transform":""
-	});
-	*/
 }

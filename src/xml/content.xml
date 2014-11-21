@@ -1,5 +1,5 @@
-<content>
-	<scenes>
+<stage>
+	<scenes cols="2">
 
 	    <scene id="scene_one">
             <title><![CDATA[Scene One]]></title>
@@ -54,4 +54,4 @@
         </scene> 
 
     </scenes>
-</content>
+</stage>
