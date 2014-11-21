@@ -120,14 +120,12 @@ body, html
 .question
 {
 	position: absolute;
+	color:white;
 	background-color: rgba(0, 0, 0, 0.5);
-	
 	max-width: 615px;
 	max-height: 615px;
-	
 	width:90%;
 	height:90%;
-	
 	margin:5%;
 	
 	
@@ -135,6 +133,7 @@ body, html
 
 .answer
 {
+	color: black;
 	background-color: white;
 	margin:10px;
 	cursor: pointer;
