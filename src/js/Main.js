@@ -177,7 +177,7 @@ function goToScene(id)
 	//have to set delay to match at least the time for transitions in css, probably a little bit longer in case they want to look at the stage first
 	setTimeout(function(){
 		showStory(scene.id);
-	}, 1000);
+	}, 500);
 	
 
 	var stageX = ($("#scenes").position().left);
@@ -222,7 +222,7 @@ function showStory(id)
     	"transform":"translateX(0px) translateY(0px) translateZ(0px)"
 		});
 		$('.controls').hide();
-	},0);
+	},10);
 	
 }
 
@@ -238,7 +238,7 @@ function showQuestion(id)
     	"transform":"translateX(0px) translateY(0px) translateZ(0px)"
 		});
 		$('.controls').hide();
-	},0);
+	},10);
 }
 
 function adjustLayout()
