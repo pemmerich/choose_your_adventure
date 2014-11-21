@@ -2,6 +2,8 @@
 var scenes=[];
 var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 var cols;
+var stageTransitionTime = 600;
+var menuTransitionTime = 600;
 
 document.write("<script src='js/Scene.js' type='text/javascript' charset='UTF-8'></script>");
 
@@ -10,7 +12,6 @@ $(document).ready
 (
     function()
     {
-      //init();
     	$.ajax(
     		{
     			type: "GET",
@@ -59,6 +60,10 @@ function init()
 	var stageHeight = $('#stage').height();
 	var stageWidth = $('#stage').width();
 
+	console.log("init");
+
+	
+
 	//layout scenes
 	$(scenes).each(function (i,elem) {
 		 //place the scenes
@@ -67,11 +72,11 @@ function init()
 		 	<li class="scene" id="scene_'+elem.id+'">\
 		 		<div class="scene_content">\
 		 			<div class="controls">\
-		 				<div class="choose_btn" id="choose_btn_'+elem.id+'"></div>\
 		 				<div class="story_btn" id="story_btn_'+elem.id+'"></div>\
+		 				<div class="choose_btn" id="choose_btn_'+elem.id+'"></div>\
 		 			</div>\
-		 			<div class="question"><div class="close"></div>'+elem.question+'<ul></ul></div>\
-		 			<div class="story"><div class="close"></div><p>'+elem.title+'</p><p>'+elem.story+'</p></div>\
+		 			<div class="question"><div class="close" id="choose_close_'+elem.id+'"></div>'+elem.question+'<ul></ul></div>\
+		 			<div class="story"><div class="close" id="story_close_'+elem.id+'"></div><p>'+elem.title+'</p><p>'+elem.story+'</p></div>\
 		 			<img src="images/'+elem.id+'/'+elem.background+'">\
 		 		</div>\
 		 	</li>'
@@ -96,16 +101,14 @@ function init()
 				setTimeout(function(){
 					$(e.target).parent().parent().css({"display":"none"});
 					self.goToScene(ans.target);
-				},600);
+				},menuTransitionTime );
     			
 			});
 
 	 	 });
-	 	 //close click
-		 $('.close').on('click', function(e) {
-		 	console.log(" close click ");
-    		
-    		
+	 	 //choose close click
+		 $('#choose_close_'+elem.id).on('click', function(e) {
+		 	console.log(" choose close click ");
 			$(e.target).parent().css({
     			"webkitTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
     			"MozTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
@@ -116,9 +119,23 @@ function init()
 			setTimeout(function(){
 				$(e.target).parent().css({"display":"none"});
 				$('.controls').show();
-			},600);
-			
-    		
+			},menuTransitionTime );
+		});
+		 //story close click
+		 $('#story_close_'+elem.id).on('click', function(e) {
+		 	console.log(" story close click ");
+			$(e.target).parent().css({
+    			"webkitTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    			"MozTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    			"msTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    			"OTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    			"transform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)"
+			});
+			setTimeout(function(){
+				$(e.target).parent().css({"display":"none"});
+				$('.controls').show();
+				//self.showQuestion(elem.id);
+			},menuTransitionTime );
 		});
 		 //choose click
 		 $('#choose_btn_'+elem.id).on('click', function(e) {
@@ -134,8 +151,28 @@ function init()
 		});
 	 });
 
-	//initially hide all the questions and stories
+	//set the transition style
+	$('#scenes').css({
+    	"-webkit-transition":"-webkit-transform "+stageTransitionTime+"ms ease-out",
+    	"-ms-transition":"-ms-transform "+stageTransitionTime+"ms ease-out",
+    	"transition":"transform "+stageTransitionTime+"ms ease-out"
+	});
 
+	$('.story').css({
+    	"-webkit-transition":"-webkit-transform "+menuTransitionTime+"ms ease-out",
+    	"-ms-transition":"-ms-transform "+menuTransitionTime+"ms ease-out",
+    	"transition":"transform "+menuTransitionTime+"ms ease-out"
+	});
+
+	$('.question').css({
+    	"-webkit-transition":"-webkit-transform "+menuTransitionTime+"ms ease-out",
+    	"-ms-transition":"-ms-transform "+menuTransitionTime+"ms ease-out",
+    	"transition":"transform "+menuTransitionTime+"ms ease-out"
+	});
+
+
+
+	//initially hide all the questions and stories
 	$('.question').css({"display":"none"});
 	$('.question').css({
     	"webkitTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
@@ -177,7 +214,7 @@ function goToScene(id)
 	//have to set delay to match at least the time for transitions in css, probably a little bit longer in case they want to look at the stage first
 	setTimeout(function(){
 		showStory(scene.id);
-	}, 500);
+	}, stageTransitionTime );
 	
 
 	var stageX = ($("#scenes").position().left);

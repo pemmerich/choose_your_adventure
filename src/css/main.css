@@ -69,19 +69,19 @@ body, html
 	-webkit-transform-style:preserve-3d;
 	-webkit-backface-visibility:hidden;
 	-webkit-perspective:1000;
-  	-webkit-transition:-webkit-transform 600ms ease-out;
+  	/*-webkit-transition:-webkit-transform 600ms ease-out;*/
 
 
   	-ms-transform-style:preserve-3d;
   	-ms-backface-visibility:hidden;
   	-ms-perspective:1000;
-  	-ms-transition:-ms-transform 600ms ease-out;
+  	/*-ms-transition:-ms-transform 600ms ease-out;*/
   
 
   	transform-style:preserve-3d;
   	backface-visibility:hidden;
   	perspective:1000;
-  	transition:transform 600ms ease-out;
+  	/*transition:transform 600ms ease-out;*/
 }
 
 .scene
@@ -149,7 +149,7 @@ body, html
 	width:90px;
 	height:40px;
 	color: white;
-	background-color: rgba(65, 32, 108, 0.5);
+	background-color: rgba(65, 32, 108, 0.75);
 	border-radius: 20px;
 	padding: 5px;
 }
@@ -159,18 +159,19 @@ body, html
 	display: inline-block;
 	width: 40px;
 	height: 40px;
-	background-color: rgba(225, 135, 76, 0.5);;
+	background-color: rgba(225, 135, 76, 0.75);;
 	border-radius: 20px;
 	margin-left: 5px;
 }
 
 .story_btn:after
 {
-	content: "S";
+	content: "☷";
 	display: block;
 	position: relative;
 	text-align: center;
-	line-height: 44px;
+	line-height: 40px;
+	font-size: 24px;
     width: 100%;
 
 }
@@ -180,17 +181,18 @@ body, html
 	display: inline-block;
 	width: 40px;
 	height: 40px;
-	background-color: rgba(78, 32, 45, 0.5);
+	background-color: rgba(78, 32, 45, 0.75);
 	border-radius: 20px;
 }
 
 .choose_btn:after
 {
-	content: "C";
+	content: "➜";
 	display: block;
 	position: relative;
 	text-align: center;
-	line-height: 44px;
+	line-height: 40px;
+	font-size: 24px;
     width: 100%;
 
 }
@@ -199,7 +201,7 @@ body, html
 {
 	position: absolute;
 	color:white;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.75);
 	max-width: 691px;
 	max-height: 691px;
 	width:90%;
@@ -213,29 +215,30 @@ body, html
 	border-radius: 25px;
 	font-size: 22px;
 
+	
 	-webkit-transform-style:preserve-3d;
 	-webkit-backface-visibility:hidden;
 	-webkit-perspective:1000;
-  	-webkit-transition:-webkit-transform 600ms ease-out;
+  	/*-webkit-transition:-webkit-transform 600ms ease-out;*/
 
 
   	-ms-transform-style:preserve-3d;
   	-ms-backface-visibility:hidden;
   	-ms-perspective:1000;
-  	-ms-transition:-ms-transform 600ms ease-out;
+  	/*-ms-transition:-ms-transform 600ms ease-out;*/
   
 
   	transform-style:preserve-3d;
   	backface-visibility:hidden;
   	perspective:1000;
-  	transition:transform 600ms ease-out;
+  	/*transition:transform 600ms ease-out;*/
 }
 
 .question
 {
 	position: absolute;
 	color:white;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.75);
 	max-width: 691px;
 	max-height: 691px;
 	width:90%;
@@ -252,19 +255,19 @@ body, html
 	-webkit-transform-style:preserve-3d;
 	-webkit-backface-visibility:hidden;
 	-webkit-perspective:1000;
-  	-webkit-transition:-webkit-transform 600ms ease-out;
+  	/*-webkit-transition:-webkit-transform 600ms ease-out;*/
 
 
   	-ms-transform-style:preserve-3d;
   	-ms-backface-visibility:hidden;
   	-ms-perspective:1000;
-  	-ms-transition:-ms-transform 600ms ease-out;
+  	/*-ms-transition:-ms-transform 600ms ease-out;*/
   
 
   	transform-style:preserve-3d;
   	backface-visibility:hidden;
   	perspective:1000;
-  	transition:transform 600ms ease-out;
+  	/*transition:transform 600ms ease-out;*/
 }
 
 .question ul
@@ -276,11 +279,13 @@ body, html
 }
 .answer
 {
-	color: black;
-	background-color: white;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
 	margin:10px;
-	min-height: 40px;
+	min-height: 20px;
 	cursor: pointer;
+	border-radius: 20px;
+	padding:10px;
 }
 
 /*small width*/
