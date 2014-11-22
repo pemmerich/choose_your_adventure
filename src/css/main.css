@@ -288,6 +288,94 @@ body, html
 	padding:10px;
 }
 
+.character
+{
+	position: absolute;
+	top:400px;
+	left:200px;
+	width: 310px;
+	height:270px;
+	background-image: url('../images/character.png');
+	z-index:1;
+}
+
+
+
+.rock_animation
+{
+	-webkit-animation-name: animate_rock;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-duration: 700ms;
+	-webkit-animation-direction: alternate;
+
+	animation-name: animate_rock;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-duration: 700ms;
+	animation-direction: alternate;
+}
+
+@-webkit-keyframes animate_rock {
+  	0% {
+  	-moz-transform: rotate(0deg);
+    -webkit-transform:rotate(0deg); 
+     -ms-transform:rotate(0deg);
+     -o-transform:rotate(0deg);
+	}
+	25% {
+	-moz-transform: rotate(10deg);
+    -webkit-transform:rotate(10deg); 
+     -ms-transform:rotate(10deg);
+     -o-transform:rotate(10deg);
+	}
+	
+	75% {
+	-moz-transform: rotate(-5deg);
+    -webkit-transform:rotate(-5deg); 
+     -ms-transform:rotate(-5deg);
+     -o-transform:rotate(-5deg);
+	}
+
+	100% {
+	-moz-transform: rotate(10deg);
+    -webkit-transform:rotate(10deg); 
+     -ms-transform:rotate(10deg);
+     -o-transform:rotate(10deg);
+	}
+	
+}
+
+@keyframes animate_rock {
+  	0% {
+  	-moz-transform: rotate(0deg);
+    -webkit-transform:rotate(0deg); 
+     -ms-transform:rotate(0deg);
+     -o-transform:rotate(0deg);
+	}
+	25% {
+	-moz-transform: rotate(10deg);
+    -webkit-transform:rotate(10deg); 
+     -ms-transform:rotate(10deg);
+     -o-transform:rotate(10deg);
+	}
+	
+	75% {
+	-moz-transform: rotate(-5deg);
+    -webkit-transform:rotate(-5deg); 
+     -ms-transform:rotate(-5deg);
+     -o-transform:rotate(-5deg);
+	}
+
+	100% {
+	-moz-transform: rotate(10deg);
+    -webkit-transform:rotate(10deg); 
+     -ms-transform:rotate(10deg);
+     -o-transform:rotate(10deg);
+	}
+	
+}
+
 /*small width*/
 @media only screen and (min-width:769px) and (max-width:875px)
 {

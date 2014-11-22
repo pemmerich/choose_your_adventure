@@ -2,7 +2,7 @@
 var scenes=[];
 var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 var cols;
-var stageTransitionTime = 600;
+var stageTransitionTime = 1000;
 var menuTransitionTime = 600;
 
 document.write("<script src='js/Scene.js' type='text/javascript' charset='UTF-8'></script>");
@@ -61,13 +61,16 @@ function init()
 	var stageWidth = $('#stage').width();
 
 	console.log("init");
-
+	
+	$('#stage').append('<div class="character"></div>');
+	$('#stage').append('<ul id="scenes"></ul>');
+	
 	
 
 	//layout scenes
 	$(scenes).each(function (i,elem) {
 		 //place the scenes
-		 $('#stage').append('<ul id="scenes"></ul>')
+
 		 $('#scenes').append('\
 		 	<li class="scene" id="scene_'+elem.id+'">\
 		 		<div class="scene_content">\
@@ -209,11 +212,12 @@ function goToScene(id)
 			return false;
 		}
 	});
-
+	$(".character").addClass("rock_animation");
 	
 	//have to set delay to match at least the time for transitions in css, probably a little bit longer in case they want to look at the stage first
 	setTimeout(function(){
 		showStory(scene.id);
+		$(".character").removeClass("rock_animation");
 	}, stageTransitionTime );
 	
 
@@ -249,7 +253,7 @@ function goToScene(id)
 function showStory(id)
 {
 	console.log("show story id = "+id);
-	$('#scene_'+id+' > .scene_content > .story').css({"display":"inline"});
+	$('#scene_'+id+' > .scene_content > .story').css({"display":"inline","z-index":"100"});
 	setTimeout(function(){
 		$('#scene_'+id+' > .scene_content > .story').css({
     	"webkitTransform":"translateX(0px) translateY(0px) translateZ(0px)",
