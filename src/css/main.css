@@ -145,6 +145,7 @@ body, html
 .controls
 {
 	position: absolute;
+	display: none;
 	margin:3%;
 	right:0px;
 	width:90px;
