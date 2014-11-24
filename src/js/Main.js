@@ -4,6 +4,9 @@ var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 var cols;
 var stageTransitionTime = 1000;
 var menuTransitionTime = 600;
+var stageHeight;
+var stageWidth;
+var curSceneID;
 
 document.write("<script src='js/Scene.js' type='text/javascript' charset='UTF-8'></script>");
 
@@ -57,12 +60,29 @@ function xmlParser(xml) {
 function init()
 {
 	var self=this;
-	var stageHeight = $('#stage').height();
-	var stageWidth = $('#stage').width();
+	stageHeight = $('#stage').height();
+	stageWidth = $('#stage').width();
 
 	console.log("init");
 	
-	$('#stage').append('<div class="character"></div>');
+	$('#stage').append('\
+		<div class="character"></div>\
+		<div class="controls">\
+		 	<div class="story_btn"></div>\
+		 	<div class="choose_btn"></div>\
+		</div>\
+		<div class="question">\
+			<div class="close" id="choose_close"></div>\
+			<p></p>\
+			<ul></ul>\
+		</div>\
+		<div class="story">\
+			<div class="close" id="story_close"></div>\
+			<p id="story_title"></p>\
+			<p id="story_copy"></p>\
+		</div>\
+	');
+
 	$('#stage').append('<ul id="scenes"></ul>');
 	
 	
@@ -74,43 +94,16 @@ function init()
 		 $('#scenes').append('\
 		 	<li class="scene" id="scene_'+elem.id+'">\
 		 		<div class="scene_content">\
-		 			<div class="controls">\
-		 				<div class="story_btn" id="story_btn_'+elem.id+'"></div>\
-		 				<div class="choose_btn" id="choose_btn_'+elem.id+'"></div>\
-		 			</div>\
-		 			<div class="question"><div class="close" id="choose_close_'+elem.id+'"></div>'+elem.question+'<ul></ul></div>\
-		 			<div class="story"><div class="close" id="story_close_'+elem.id+'"></div><p>'+elem.title+'</p><p>'+elem.story+'</p></div>\
 		 			<img src="images/'+elem.id+'/'+elem.background+'">\
 		 		</div>\
 		 	</li>'
 		 );
-		 $(elem.answers).each(function (a,ans) {
-		 	//place the answers
-		 	$('#scene_'+elem.id+' > .scene_content > .question ul').append('<li class="answer" id="answer_'+elem.id+'_'+a+'">'+ans.text+'</li>');
+		 
+	 	 
+	 });
 
-		 	//set dimensions of question
-		 	//$('#scene_'+elem.id+' > .scene_content > .question').css({"width":stageWidth/2+"px","height":stageHeight/2+"px"})
-
-		 	//answer click
-		 	$('#answer_'+elem.id+'_'+a).on('click', function(e) {
-		 		console.log(" answer click ");
-    			$(e.target).parent().parent().css({
-    				"webkitTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
-    				"MozTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
-    				"msTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
-    				"OTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
-    				"transform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)"
-				});
-				setTimeout(function(){
-					$(e.target).parent().parent().css({"display":"none"});
-					self.goToScene(ans.target);
-				},menuTransitionTime );
-    			
-			});
-
-	 	 });
-	 	 //choose close click
-		 $('#choose_close_'+elem.id).on('click', function(e) {
+		//choose close click
+		 $('#choose_close').on('click', function(e) {
 		 	console.log(" choose close click ");
 			$(e.target).parent().css({
     			"webkitTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
@@ -125,7 +118,7 @@ function init()
 			},menuTransitionTime );
 		});
 		 //story close click
-		 $('#story_close_'+elem.id).on('click', function(e) {
+		 $('#story_close').on('click', function(e) {
 		 	console.log(" story close click ");
 			$(e.target).parent().css({
     			"webkitTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
@@ -141,18 +134,18 @@ function init()
 			},menuTransitionTime );
 		});
 		 //choose click
-		 $('#choose_btn_'+elem.id).on('click', function(e) {
+		 $('.choose_btn').on('click', function(e) {
 		 	console.log(" choose click ");
-    		self.showQuestion(elem.id);
+    		self.showQuestion(curSceneID);
 			
 		});
 		 //story click
-		 $('#story_btn_'+elem.id).on('click', function(e) {
-		 	console.log(" choose click ");
-    		self.showStory(elem.id);
+		 $('.story_btn').on('click', function(e) {
+		 	console.log(" story click ");
+    		self.showStory(curSceneID);
 			
 		});
-	 });
+
 
 	//set the transition style
 	$('#scenes').css({
@@ -204,14 +197,8 @@ function init()
 function goToScene(id)
 {
 	console.log("go to scene = "+id);
-	var scene; 
-	//get scene object
-	$(scenes).each(function (i,elem) {
-		if(elem.id == id){
-			scene = elem;
-			return false;
-		}
-	});
+	var scene = getSceneForID(id); 
+	
 	$(".character").addClass("rock_animation");
 	
 	//have to set delay to match at least the time for transitions in css, probably a little bit longer in case they want to look at the stage first
@@ -248,19 +235,29 @@ function goToScene(id)
     	"OTransform":"translateX("+destX+"px) translateY("+destY+"px) translateZ(0px)",
     	"transform":"translateX("+destX+"px) translateY("+destY+"px) translateZ(0px)"
 	});
+
+	curSceneID = id;
 }
 
 function showStory(id)
 {
 	console.log("show story id = "+id);
-	$('#scene_'+id+' > .scene_content > .story').css({"display":"inline","z-index":"100"});
+
+	var scene = getSceneForID(id); 
+
+	console.log("scene id = "+scene.id);
+
+	$('#story_title').html(scene.title);
+	$('#story_copy').html(scene.story);
+
+	$('#stage > .story').css({"display":"inline","z-index":"100"});
 	setTimeout(function(){
-		$('#scene_'+id+' > .scene_content > .story').css({
-    	"webkitTransform":"translateX(0px) translateY(0px) translateZ(0px)",
-    	"MozTransform":"translateX(0px) translateY(0px) translateZ(0px)",
-    	"msTransform":"translateX(0px) translateY(0px) translateZ(0px)",
-    	"OTransform":"translateX(0px) translateY(0px) translateZ(0px)",
-    	"transform":"translateX(0px) translateY(0px) translateZ(0px)"
+		$('#stage > .story').css({
+    		"webkitTransform":"translateX(0px) translateY(0px) translateZ(0px)",
+    		"MozTransform":"translateX(0px) translateY(0px) translateZ(0px)",
+    		"msTransform":"translateX(0px) translateY(0px) translateZ(0px)",
+    		"OTransform":"translateX(0px) translateY(0px) translateZ(0px)",
+    		"transform":"translateX(0px) translateY(0px) translateZ(0px)"
 		});
 		$('.controls').hide();
 	},100);
@@ -269,23 +266,77 @@ function showStory(id)
 
 function showQuestion(id)
 {
-	$('#scene_'+id+' > .scene_content > .question').css({"display":"inline"});
+	console.log("show question");
+
+	var scene = getSceneForID(id); 
+	$('#stage > .question ul').empty();
+	$('#stage > .question p').html(scene.question);
+
+	$(scene.answers).each(function (a,ans) {
+		//place the answers
+		$('#stage > .question ul').append('<li class="answer" id="answer_'+scene.id+'_'+a+'">'+ans.text+'</li>');
+
+
+		//answer click
+		$('#answer_'+scene.id+'_'+a).on('click', function(e) {
+		 	console.log(" answer click ");
+    		$(e.target).parent().parent().css({
+    			"webkitTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    			"MozTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    			"msTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    			"OTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    			"transform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)"
+			});
+			setTimeout(function(){
+				$(e.target).parent().parent().css({"display":"none"});
+				self.goToScene(ans.target);
+			},menuTransitionTime );
+    			
+		});
+
+	});
+
+	$('#stage > .question').css({"display":"inline"});
 	setTimeout(function(){
-		$('#scene_'+id+' > .scene_content > .question').css({
-    	"webkitTransform":"translateX(0px) translateY(0px) translateZ(0px)",
-    	"MozTransform":"translateX(0px) translateY(0px) translateZ(0px)",
-    	"msTransform":"translateX(0px) translateY(0px) translateZ(0px)",
-    	"OTransform":"translateX(0px) translateY(0px) translateZ(0px)",
-    	"transform":"translateX(0px) translateY(0px) translateZ(0px)"
+		$('#stage > .question').css({
+    		"webkitTransform":"translateX(0px) translateY(0px) translateZ(0px)",
+    		"MozTransform":"translateX(0px) translateY(0px) translateZ(0px)",
+    		"msTransform":"translateX(0px) translateY(0px) translateZ(0px)",
+    		"OTransform":"translateX(0px) translateY(0px) translateZ(0px)",
+    		"transform":"translateX(0px) translateY(0px) translateZ(0px)"
 		});
 		$('.controls').hide();
 	},100);
 }
 
+function getSceneForID(id)
+{
+	//get scene object
+	var scene;
+	$(scenes).each(function (i,elem) {
+		if(elem.id == id){
+			scene = elem;
+			return false;
+		}
+	});
+	return scene;
+}
+
 function adjustLayout()
 {
-	var stageHeight = $('#stage').height();
-	var stageWidth = $('#stage').width();
+	stageHeight = $('#stage').height();
+	stageWidth = $('#stage').width();
+
+	var characterWidth = $('.character').width();
+	var characterHeight = $('.character').height();
+
+	if(characterWidth > characterHeight){
+		$('.character').css({"background-size":"auto 100%"});
+	}else{
+		
+		$('.character').css({"background-size":"100% auto"});
+	}
+
 
 	$('.scene').css({"width":stageWidth+"px","height":stageHeight+"px"});
 	$('#scenes').css({"width":(cols*stageWidth)+"px"});
