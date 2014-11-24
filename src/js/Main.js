@@ -199,15 +199,6 @@ function goToScene(id)
 	console.log("go to scene = "+id);
 	var scene = getSceneForID(id); 
 	
-	$(".character").addClass("rock_animation");
-	
-	//have to set delay to match at least the time for transitions in css, probably a little bit longer in case they want to look at the stage first
-	setTimeout(function(){
-		showStory(scene.id);
-		$(".character").removeClass("rock_animation");
-	}, stageTransitionTime );
-	
-
 	var stageX = ($("#scenes").position().left);
 	var stageY = ($("#scenes").position().top);
 
@@ -216,6 +207,27 @@ function goToScene(id)
 
 	var destX = stageX-sceneX;
 	var destY = stageY-sceneY;
+
+	if(destX > stageX){
+		$(".character").addClass("rock_animation_left");
+	}else{
+		$(".character").addClass("rock_animation_right");
+	}
+	
+	//have to set delay to match at least the time for transitions in css, probably a little bit longer in case they want to look at the stage first
+	setTimeout(function(){
+		showStory(scene.id);
+		$(".character").removeClass("rock_animation_left");
+		$(".character").removeClass("rock_animation_right");
+		if(destX > stageX){
+			$(".character").addClass("flip_horizontal");
+		}else{
+			$(".character").removeClass("flip_horizontal");
+		}
+	}, stageTransitionTime );
+	
+
+
 
 	console.log(" stageX = "+stageX+" stageY = "+stageY+" sceneX = "+sceneX+" sceneY = "+sceneY+" destX = "+destX+" destY = "+destY);
 	/*

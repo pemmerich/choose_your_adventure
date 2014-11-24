@@ -1,5 +1,5 @@
 <stage>
-	<scenes cols="2">
+	<scenes cols="6">
 
 	    <scene id="scene_one">
             <title><![CDATA[Scene One]]></title>
@@ -14,8 +14,6 @@
             <answer target="scene_four"><![CDATA[Answer Four]]></answer>
             <answer target="scene_five"><![CDATA[Answer Five]]></answer>
             <answer target="scene_six"><![CDATA[Answer Six]]></answer>
-            <answer target="scene_seven"><![CDATA[Answer Seven]]></answer>
-            <answer target="scene_eight"><![CDATA[Answer Eight]]></answer>
             <story><![CDATA[This is where the story part will go. Let's put a little more text in here and pretend it's a real story line.]]></story>
         </scene> 
 
@@ -32,8 +30,6 @@
             <answer target="scene_four"><![CDATA[Answer Four]]></answer>
             <answer target="scene_five"><![CDATA[Answer Five]]></answer>
             <answer target="scene_six"><![CDATA[Answer Six]]></answer>
-            <answer target="scene_seven"><![CDATA[Answer Seven]]></answer>
-            <answer target="scene_eight"><![CDATA[Answer Eight]]></answer>
             <story><![CDATA[This is where the story part will go.]]></story>
         </scene> 
 
@@ -50,8 +46,6 @@
             <answer target="scene_four"><![CDATA[Answer Four]]></answer>
             <answer target="scene_five"><![CDATA[Answer Five]]></answer>
             <answer target="scene_six"><![CDATA[Answer Six]]></answer>
-            <answer target="scene_seven"><![CDATA[Answer Seven]]></answer>
-            <answer target="scene_eight"><![CDATA[Answer Eight]]></answer>
             <story><![CDATA[This is where the story part will go.]]></story>
         </scene> 
 
@@ -68,8 +62,6 @@
             <answer target="scene_four"><![CDATA[Answer Four]]></answer>
             <answer target="scene_five"><![CDATA[Answer Five]]></answer>
             <answer target="scene_six"><![CDATA[Answer Six]]></answer>
-            <answer target="scene_seven"><![CDATA[Answer Seven]]></answer>
-            <answer target="scene_eight"><![CDATA[Answer Eight]]></answer>
             <story><![CDATA[This is where the story part will go.]]></story>
         </scene> 
 
@@ -80,14 +72,12 @@
                 <extra x="10" y="10" height="200" width="100">extra1.png</extra>
             </extras>
             <question><![CDATA[Scene five question]]></question>
-            <answer target="scene_one"><![CDATA[Answer One]]></answer>
+           <answer target="scene_one"><![CDATA[Answer One]]></answer>
             <answer target="scene_two"><![CDATA[Answer Two]]></answer>
             <answer target="scene_three"><![CDATA[Answer Three]]></answer>
             <answer target="scene_four"><![CDATA[Answer Four]]></answer>
             <answer target="scene_five"><![CDATA[Answer Five]]></answer>
             <answer target="scene_six"><![CDATA[Answer Six]]></answer>
-            <answer target="scene_seven"><![CDATA[Answer Seven]]></answer>
-            <answer target="scene_eight"><![CDATA[Answer Eight]]></answer>
             <story><![CDATA[This is where the story part will go.]]></story>
         </scene> 
 
@@ -104,46 +94,10 @@
             <answer target="scene_four"><![CDATA[Answer Four]]></answer>
             <answer target="scene_five"><![CDATA[Answer Five]]></answer>
             <answer target="scene_six"><![CDATA[Answer Six]]></answer>
-            <answer target="scene_seven"><![CDATA[Answer Seven]]></answer>
-            <answer target="scene_eight"><![CDATA[Answer Eight]]></answer>
             <story><![CDATA[This is where the story part will go.]]></story>
         </scene> 
 
-        <scene id="scene_seven">
-            <title><![CDATA[Scene Seven]]></title>
-            <background>bg.jpg</background>
-            <extras>
-                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
-            </extras>
-            <question><![CDATA[Scene seven question]]></question>
-            <answer target="scene_one"><![CDATA[Answer One]]></answer>
-            <answer target="scene_two"><![CDATA[Answer Two]]></answer>
-            <answer target="scene_three"><![CDATA[Answer Three]]></answer>
-            <answer target="scene_four"><![CDATA[Answer Four]]></answer>
-            <answer target="scene_five"><![CDATA[Answer Five]]></answer>
-            <answer target="scene_six"><![CDATA[Answer Six]]></answer>
-            <answer target="scene_seven"><![CDATA[Answer Seven]]></answer>
-            <answer target="scene_eight"><![CDATA[Answer Eight]]></answer>
-            <story><![CDATA[This is where the story part will go.]]></story>
-        </scene> 
-
-        <scene id="scene_eight">
-            <title><![CDATA[Scene Eight]]></title>
-            <background>bg.jpg</background>
-            <extras>
-                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
-            </extras>
-            <question><![CDATA[Scene eight question]]></question>
-            <answer target="scene_one"><![CDATA[Answer One]]></answer>
-            <answer target="scene_two"><![CDATA[Answer Two]]></answer>
-            <answer target="scene_three"><![CDATA[Answer Three]]></answer>
-            <answer target="scene_four"><![CDATA[Answer Four]]></answer>
-            <answer target="scene_five"><![CDATA[Answer Five]]></answer>
-            <answer target="scene_six"><![CDATA[Answer Six]]></answer>
-            <answer target="scene_seven"><![CDATA[Answer Seven]]></answer>
-            <answer target="scene_eight"><![CDATA[Answer Eight]]></answer>
-            <story><![CDATA[This is where the story part will go.]]></story>
-        </scene> 
+       
 
     </scenes>
 </stage>
