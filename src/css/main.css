@@ -119,6 +119,15 @@ body, html
 	padding: 0px;
 	margin:0px;
 
+
+}
+
+.scene_content p 
+{
+	position: absolute;
+	top:2%;
+	left:2%;
+	font-size: 22px;
 }
 
 .close
@@ -294,9 +303,8 @@ body, html
 
 .character
 {
-	position: absolute;
-	bottom:10%;
-	left:30%;
+	
+	
 	width:30%;
 	height:25%;
 	max-width: 310px;
@@ -312,6 +320,46 @@ body, html
 	-o-transform: scale(1, 1);
 	-ms-transform: scale(1, 1);
 	transform: scale(1, 1);
+}
+
+#main_character
+{
+	position: absolute;
+	left:30%;
+	bottom:10%;
+}
+
+#characters
+{
+	position: absolute;
+	left:0%;
+	bottom:10%;
+	width: 100%;
+	height:25%;
+}
+
+#characters .character
+{
+	display: inline-block;
+	height: 100%;
+}
+
+#character_one
+{
+	background-image: url('../images/character_one.png');
+	
+}
+
+#character_two
+{
+	background-image: url('../images/character_two.png');
+	
+}
+
+#character_three
+{
+	background-image: url('../images/character_three.png');
+	
 }
 
 .flip_horizontal

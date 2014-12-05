@@ -15,14 +15,7 @@ $(document).ready
 (
     function()
     {
-    	$.ajax(
-    		{
-    			type: "GET",
-    	        url: "xml/content.xml",
-    	        dataType: "xml",
-    	        success: xmlParser
-    		}
-    	);
+    	init();
 
     }
 );
@@ -52,7 +45,8 @@ function xmlParser(xml) {
     	 
     });
     
-    init();
+    //init();
+    layoutScenes();
  
 }
 
@@ -66,7 +60,7 @@ function init()
 	console.log("init");
 	
 	$('#stage').append('\
-		<div class="character"></div>\
+		<div class="character" id="main_character"></div>\
 		<div class="controls">\
 		 	<div class="story_btn"></div>\
 		 	<div class="choose_btn"></div>\
@@ -84,9 +78,76 @@ function init()
 	');
 
 	$('#stage').append('<ul id="scenes"></ul>');
+	//add start screen
+	$('#scenes').append('\
+		<li class="scene" id="start_screen">\
+		 	<div class="scene_content">\
+		 		<img src="images/start_screen/bg.jpg">\
+		 	</div>\
+		 </li>\
+	');
+	$('#start_screen > .scene_content').append('\
+		 <p>CHOOSE A CHARACTER TO START YOUR ADVENTURE!</p>\
+		 <div id="characters">\
+		 <div class="character" id="character_one"></div>\
+		 <div class="character" id="character_two"></div>\
+		 <div class="character" id="character_three"></div>\
+		 </div>\
+	');
+
+	//initially hide character
+	$('#main_character').css({"display":"none"});
 	
+	//set the transition style
+	$('#scenes').css({
+    	"-webkit-transition":"-webkit-transform "+stageTransitionTime+"ms ease-out",
+    	"-ms-transition":"-ms-transform "+stageTransitionTime+"ms ease-out",
+    	"transition":"transform "+stageTransitionTime+"ms ease-out"
+	});
+
+	$('.story').css({
+    	"-webkit-transition":"-webkit-transform "+menuTransitionTime+"ms ease-out",
+    	"-ms-transition":"-ms-transform "+menuTransitionTime+"ms ease-out",
+    	"transition":"transform "+menuTransitionTime+"ms ease-out"
+	});
+
+	$('.question').css({
+    	"-webkit-transition":"-webkit-transform "+menuTransitionTime+"ms ease-out",
+    	"-ms-transition":"-ms-transform "+menuTransitionTime+"ms ease-out",
+    	"transition":"transform "+menuTransitionTime+"ms ease-out"
+	});
+
+
+
+	//initially hide all the questions and stories
+	$('.question').css({"display":"none"});
+	$('.question').css({
+    	"webkitTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    	"MozTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    	"msTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    	"OTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    	"transform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)"
+	});
+	
+	$('.story').css({"display":"none"});
+	$('.story').css({
+    	"webkitTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    	"MozTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    	"msTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    	"OTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
+    	"transform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)"
+	});
+
 	
 
+	adjustLayout();
+	//goToScene(scenes[0].id);
+	
+}
+
+
+function layoutScenes()
+{
 	//layout scenes
 	$(scenes).each(function (i,elem) {
 		 //place the scenes
@@ -145,53 +206,6 @@ function init()
     		self.showStory(curSceneID);
 			
 		});
-
-
-	//set the transition style
-	$('#scenes').css({
-    	"-webkit-transition":"-webkit-transform "+stageTransitionTime+"ms ease-out",
-    	"-ms-transition":"-ms-transform "+stageTransitionTime+"ms ease-out",
-    	"transition":"transform "+stageTransitionTime+"ms ease-out"
-	});
-
-	$('.story').css({
-    	"-webkit-transition":"-webkit-transform "+menuTransitionTime+"ms ease-out",
-    	"-ms-transition":"-ms-transform "+menuTransitionTime+"ms ease-out",
-    	"transition":"transform "+menuTransitionTime+"ms ease-out"
-	});
-
-	$('.question').css({
-    	"-webkit-transition":"-webkit-transform "+menuTransitionTime+"ms ease-out",
-    	"-ms-transition":"-ms-transform "+menuTransitionTime+"ms ease-out",
-    	"transition":"transform "+menuTransitionTime+"ms ease-out"
-	});
-
-
-
-	//initially hide all the questions and stories
-	$('.question').css({"display":"none"});
-	$('.question').css({
-    	"webkitTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
-    	"MozTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
-    	"msTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
-    	"OTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
-    	"transform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)"
-	});
-	
-	$('.story').css({"display":"none"});
-	$('.story').css({
-    	"webkitTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
-    	"MozTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
-    	"msTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
-    	"OTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
-    	"transform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)"
-	});
-
-	
-
-	adjustLayout();
-	goToScene(scenes[0].id);
-	
 }
 
 function goToScene(id)
@@ -209,20 +223,20 @@ function goToScene(id)
 	var destY = stageY-sceneY;
 
 	if(destX > stageX){
-		$(".character").addClass("rock_animation_left");
+		$(".main_character").addClass("rock_animation_left");
 	}else{
-		$(".character").addClass("rock_animation_right");
+		$(".main_character").addClass("rock_animation_right");
 	}
 	
 	//have to set delay to match at least the time for transitions in css, probably a little bit longer in case they want to look at the stage first
 	setTimeout(function(){
 		showStory(scene.id);
-		$(".character").removeClass("rock_animation_left");
-		$(".character").removeClass("rock_animation_right");
+		$(".main_character").removeClass("rock_animation_left");
+		$(".main_character").removeClass("rock_animation_right");
 		if(destX > stageX){
-			$(".character").addClass("flip_horizontal");
+			$(".main_character").addClass("flip_horizontal");
 		}else{
-			$(".character").removeClass("flip_horizontal");
+			$(".main_character").removeClass("flip_horizontal");
 		}
 	}, stageTransitionTime );
 	
@@ -339,15 +353,19 @@ function adjustLayout()
 	stageHeight = $('#stage').height();
 	stageWidth = $('#stage').width();
 
-	var characterWidth = $('.character').width();
-	var characterHeight = $('.character').height();
+	$( ".character" ).each(function( index ) {
+  		var characterWidth = $(this).width();
+		var characterHeight = $(this).height();
 
-	if(characterWidth > characterHeight){
-		$('.character').css({"background-size":"auto 100%"});
-	}else{
-		
-		$('.character').css({"background-size":"100% auto"});
-	}
+		if(characterWidth > characterHeight){
+			$(this).css({"background-size":"auto 100%"});
+		}else{
+			
+			$(this).css({"background-size":"100% auto"});
+		}
+	});
+
+	
 
 
 	$('.scene').css({"width":stageWidth+"px","height":stageHeight+"px"});
