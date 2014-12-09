@@ -158,7 +158,9 @@ function init()
 	});
 
 	
-
+	setTimeout(function(){
+		adjustLayout();
+	},100);
 	adjustLayout();
 	//goToScene(scenes[0].id);
 	
