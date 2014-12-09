@@ -103,18 +103,19 @@ function init()
 
 	//initially hide character
 	$('#main_character').addClass("fadeout");
+	$('#main_character').css({"display":"none"});
 	
 	//set the transition style
 	$('#main_character').css({
-    	"-webkit-transition":"opacity "+stageTransitionTime+"ms ease-out",
-    	"-ms-transition":"opacity "+stageTransitionTime+"ms ease-out",
-    	"transition":"opacity "+stageTransitionTime+"ms ease-out"
+    	"-webkit-transition":"opacity "+menuTransitionTime+"ms ease-out",
+    	"-ms-transition":"opacity "+menuTransitionTime+"ms ease-out",
+    	"transition":"opacity "+menuTransitionTime+"ms ease-out"
 	});
 
 	$('#characters').css({
-    	"-webkit-transition":"opacity "+stageTransitionTime+"ms ease-out",
-    	"-ms-transition":"opacity "+stageTransitionTime+"ms ease-out",
-    	"transition":"opacity "+stageTransitionTime+"ms ease-out"
+    	"-webkit-transition":"opacity "+menuTransitionTime+"ms ease-out",
+    	"-ms-transition":"opacity "+menuTransitionTime+"ms ease-out",
+    	"transition":"opacity "+menuTransitionTime+"ms ease-out"
 	});
 
 	$('#scenes').css({
@@ -254,12 +255,18 @@ function layoutScenes()
 
 		 //hide characters selection
 		 $("#characters").addClass("fadeout");
-		 //show main character
-		 $("#main_character").addClass("fadein");
+
 		 adjustLayout();
 		 setTimeout(function(){
-			goToScene(firstID);
-		 }, stageTransitionTime );
+		 	//show main character
+		 	$('#main_character').css({"display":"inline"});
+		 	setTimeout(function(){
+		 		$("#main_character").addClass("fadein");
+		 		setTimeout(function(){
+		 			goToScene(firstID);
+		 		}, menuTransitionTime );
+		 	},10);
+		 }, menuTransitionTime );
 		 
 }
 
