@@ -1,0 +1,99 @@
+<stage>
+	<scenes cols="6">
+	    <scene id="scene_one">
+            <title><![CDATA[Scene One]]></title>
+        	<background>bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question><![CDATA[Scene one question]]></question>
+            <answer target="scene_one"><![CDATA[Answer One]]></answer>
+            <answer target="scene_two"><![CDATA[Answer Two]]></answer>
+            <answer target="scene_three"><![CDATA[Answer Three]]></answer>
+            <answer target="scene_four"><![CDATA[Answer Four]]></answer>
+            <answer target="scene_five"><![CDATA[Answer Five]]></answer>
+            <answer target="scene_six"><![CDATA[Answer Six]]></answer>
+            <story><![CDATA[This is where the story part will go. Let's put a little more text in here and pretend it's a real story line.]]></story>
+        </scene> 
+
+        <scene id="scene_two">
+            <title><![CDATA[Scene Two]]></title>
+            <background>bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question><![CDATA[Scene two question]]></question>
+            <answer target="scene_one"><![CDATA[Answer One]]></answer>
+            <answer target="scene_two"><![CDATA[Answer Two]]></answer>
+            <answer target="scene_three"><![CDATA[Answer Three]]></answer>
+            <answer target="scene_four"><![CDATA[Answer Four]]></answer>
+            <answer target="scene_five"><![CDATA[Answer Five]]></answer>
+            <answer target="scene_six"><![CDATA[Answer Six]]></answer>
+            <story><![CDATA[This is where the story part will go.]]></story>
+        </scene> 
+
+        <scene id="scene_three">
+            <title><![CDATA[Scene Three]]></title>
+            <background>bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question><![CDATA[Scene three question]]></question>
+            <answer target="scene_one"><![CDATA[Answer One]]></answer>
+            <answer target="scene_two"><![CDATA[Answer Two]]></answer>
+            <answer target="scene_three"><![CDATA[Answer Three]]></answer>
+            <answer target="scene_four"><![CDATA[Answer Four]]></answer>
+            <answer target="scene_five"><![CDATA[Answer Five]]></answer>
+            <answer target="scene_six"><![CDATA[Answer Six]]></answer>
+            <story><![CDATA[This is where the story part will go.]]></story>
+        </scene> 
+
+        <scene id="scene_four">
+            <title><![CDATA[Scene Four]]></title>
+            <background>bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question><![CDATA[Scene four question]]></question>
+            <answer target="scene_one"><![CDATA[Answer One]]></answer>
+            <answer target="scene_two"><![CDATA[Answer Two]]></answer>
+            <answer target="scene_three"><![CDATA[Answer Three]]></answer>
+            <answer target="scene_four"><![CDATA[Answer Four]]></answer>
+            <answer target="scene_five"><![CDATA[Answer Five]]></answer>
+            <answer target="scene_six"><![CDATA[Answer Six]]></answer>
+            <story><![CDATA[This is where the story part will go.]]></story>
+        </scene> 
+
+        <scene id="scene_five">
+            <title><![CDATA[Scene Five]]></title>
+            <background>bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question><![CDATA[Scene five question]]></question>
+           <answer target="scene_one"><![CDATA[Answer One]]></answer>
+            <answer target="scene_two"><![CDATA[Answer Two]]></answer>
+            <answer target="scene_three"><![CDATA[Answer Three]]></answer>
+            <answer target="scene_four"><![CDATA[Answer Four]]></answer>
+            <answer target="scene_five"><![CDATA[Answer Five]]></answer>
+            <answer target="scene_six"><![CDATA[Answer Six]]></answer>
+            <story><![CDATA[This is where the story part will go.]]></story>
+        </scene> 
+
+        <scene id="scene_six">
+            <title><![CDATA[Scene Six]]></title>
+            <background>bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question><![CDATA[Scene six question]]></question>
+            <answer target="scene_one"><![CDATA[Answer One]]></answer>
+            <answer target="scene_two"><![CDATA[Answer Two]]></answer>
+            <answer target="scene_three"><![CDATA[Answer Three]]></answer>
+            <answer target="scene_four"><![CDATA[Answer Four]]></answer>
+            <answer target="scene_five"><![CDATA[Answer Five]]></answer>
+            <answer target="scene_six"><![CDATA[Answer Six]]></answer>
+            <story><![CDATA[This is where the story part will go.]]></story>
+        </scene>
+    </scenes>
+</stage>

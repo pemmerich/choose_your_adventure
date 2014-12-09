@@ -37,6 +37,7 @@ $(window).resize(function() {
 function xmlParser(xml) {
 	var self=this;
     cols = $(xml).find("scenes").attr('cols');
+    cols++;
     console.log("cols = "+cols);
     $(xml).find("scene").each(function (i,elem) {
     	
@@ -95,10 +96,27 @@ function init()
 		 </div>\
 	');
 
+	//choose close click
+	$('.character').on('click', function(e) {
+		characterClick(e);	
+	});
+
 	//initially hide character
-	$('#main_character').css({"display":"none"});
+	$('#main_character').addClass("fadeout");
 	
 	//set the transition style
+	$('#main_character').css({
+    	"-webkit-transition":"opacity "+stageTransitionTime+"ms ease-out",
+    	"-ms-transition":"opacity "+stageTransitionTime+"ms ease-out",
+    	"transition":"opacity "+stageTransitionTime+"ms ease-out"
+	});
+
+	$('#characters').css({
+    	"-webkit-transition":"opacity "+stageTransitionTime+"ms ease-out",
+    	"-ms-transition":"opacity "+stageTransitionTime+"ms ease-out",
+    	"transition":"opacity "+stageTransitionTime+"ms ease-out"
+	});
+
 	$('#scenes').css({
     	"-webkit-transition":"-webkit-transform "+stageTransitionTime+"ms ease-out",
     	"-ms-transition":"-ms-transform "+stageTransitionTime+"ms ease-out",
@@ -145,9 +163,36 @@ function init()
 	
 }
 
+function characterClick(e)
+{
+	var id = $(e.target).attr("id");
+	console.log("character click "+id);
+	loadStory(id);
+}
+
+function loadStory(id)
+{
+	//set character image
+	$("#main_character").css({"background-image":"url('../images/"+id+".png')"});
+	
+
+	$.ajax(
+   		{
+			type: "GET",
+			url: "xml/"+id+".xml",
+	   	    dataType: "xml",
+  	        success: xmlParser
+ 		}
+ 	);
+}
 
 function layoutScenes()
 {
+
+	//first scene id
+	var firstID = scenes[0].id;
+	console.log("Layout Scenes first scene = "+firstID);
+
 	//layout scenes
 	$(scenes).each(function (i,elem) {
 		 //place the scenes
@@ -206,6 +251,16 @@ function layoutScenes()
     		self.showStory(curSceneID);
 			
 		});
+
+		 //hide characters selection
+		 $("#characters").addClass("fadeout");
+		 //show main character
+		 $("#main_character").addClass("fadein");
+		 adjustLayout();
+		 setTimeout(function(){
+			goToScene(firstID);
+		 }, stageTransitionTime );
+		 
 }
 
 function goToScene(id)
@@ -223,20 +278,20 @@ function goToScene(id)
 	var destY = stageY-sceneY;
 
 	if(destX > stageX){
-		$(".main_character").addClass("rock_animation_left");
+		$("#main_character").addClass("rock_animation_left");
 	}else{
-		$(".main_character").addClass("rock_animation_right");
+		$("#main_character").addClass("rock_animation_right");
 	}
 	
 	//have to set delay to match at least the time for transitions in css, probably a little bit longer in case they want to look at the stage first
 	setTimeout(function(){
 		showStory(scene.id);
-		$(".main_character").removeClass("rock_animation_left");
-		$(".main_character").removeClass("rock_animation_right");
+		$("#main_character").removeClass("rock_animation_left");
+		$("#main_character").removeClass("rock_animation_right");
 		if(destX > stageX){
-			$(".main_character").addClass("flip_horizontal");
+			$("#main_character").addClass("flip_horizontal");
 		}else{
-			$(".main_character").removeClass("flip_horizontal");
+			$("#main_character").removeClass("flip_horizontal");
 		}
 	}, stageTransitionTime );
 	
