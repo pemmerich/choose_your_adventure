@@ -255,11 +255,12 @@ function layoutScenes()
 
 		 //hide characters selection
 		 $("#characters").addClass("fadeout");
-
-		 adjustLayout();
+		 //show main character
+		 $('#main_character').css({"display":"inline"});
+		 
 		 setTimeout(function(){
 		 	//show main character
-		 	$('#main_character').css({"display":"inline"});
+		 	$("#main_character").removeClass("fadeout");
 		 	setTimeout(function(){
 		 		$("#main_character").addClass("fadein");
 		 		setTimeout(function(){
@@ -267,7 +268,8 @@ function layoutScenes()
 		 		}, menuTransitionTime );
 		 	},10);
 		 }, menuTransitionTime );
-		 
+
+		adjustLayout(); 
 }
 
 function goToScene(id)
