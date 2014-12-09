@@ -174,7 +174,7 @@ function characterClick(e)
 function loadStory(id)
 {
 	//set character image
-	$("#main_character").css({"background-image":"url('../images/"+id+".png')"});
+	$("#main_character").css({"background-image":"url('images/"+id+".png')"});
 	
 
 	$.ajax(
