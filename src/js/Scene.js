@@ -9,6 +9,8 @@ function Scene(xml)
   self.question = xml.find("question").text();
   self.answers = [];
   self.story = xml.find("story").text();
+  self.storyAudio = xml.find("story").attr("audio");
+  self.questionAudio = xml.find("question").attr("audio");
   $(xml).find("answer").each(function (i,elem) {
 
     	var text = $(this).text();

@@ -83,12 +83,12 @@ function init()
 	$('#scenes').append('\
 		<li class="scene" id="start_screen">\
 		 	<div class="scene_content">\
-		 		<img src="images/start_screen/bg.jpg">\
+		 		<img src="images/start_screen_bg.jpg">\
 		 	</div>\
 		 </li>\
 	');
 	$('#start_screen > .scene_content').append('\
-		 <p>CHOOSE A CHARACTER TO START YOUR ADVENTURE!</p>\
+		 \
 		 <div id="characters">\
 		 <div class="character" id="character_one"></div>\
 		 <div class="character" id="character_two"></div>\
@@ -182,7 +182,8 @@ function loadStory(id)
 	$.ajax(
    		{
 			type: "GET",
-			url: "xml/"+id+".xml",
+			//url: "xml/"+id+".xml",
+			url: "xml/character_one.xml",
 	   	    dataType: "xml",
   	        success: xmlParser
  		}
@@ -203,7 +204,7 @@ function layoutScenes()
 		 $('#scenes').append('\
 		 	<li class="scene" id="scene_'+elem.id+'">\
 		 		<div class="scene_content">\
-		 			<img src="images/'+elem.id+'/'+elem.background+'">\
+		 			<img src="'+elem.background+'">\
 		 		</div>\
 		 	</li>'
 		 );
@@ -352,6 +353,8 @@ function showStory(id)
     		"transform":"translateX(0px) translateY(0px) translateZ(0px)"
 		});
 		$('.controls').hide();
+		//play sound
+		playSound(scene.storyAudio);
 	},100);
 	
 }
@@ -398,6 +401,9 @@ function showQuestion(id)
     		"transform":"translateX(0px) translateY(0px) translateZ(0px)"
 		});
 		$('.controls').hide();
+
+		playSound(scene.questionAudio);
+
 	},100);
 }
 
@@ -412,6 +418,17 @@ function getSceneForID(id)
 		}
 	});
 	return scene;
+}
+
+function playSound(sound)
+{
+	console.log("play sound "+sound);
+
+	var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', sound);
+        //audioElement.setAttribute('autoplay', 'autoplay');
+        audioElement.play();
+        audioElement = null;
 }
 
 function adjustLayout()
