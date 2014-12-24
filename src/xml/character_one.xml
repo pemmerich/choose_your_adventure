@@ -10,11 +10,15 @@
                 <extra x="10" y="10" height="200" width="100">extra1.png</extra>
             </extras>
             <question  audio="audio/scene_one_question_audio.m4a"><![CDATA[Now that you're awake, how would you like to start your day? ]]></question>
-            <answer target="scene_one"><![CDATA[A. Get some cookies from the cupboard]]></answer>
-            <answer target="scene_two"><![CDATA[B. Read a book]]></answer>
+            <answer target="scene_sneaking_snacks"><![CDATA[A. Get some cookies from the cupboard]]></answer>
+            <answer target="scene_read_book"><![CDATA[B. Read a book]]></answer>
             <answer target="scene_three"><![CDATA[C. Wake up your sister/brother ]]></answer>
             <answer target="scene_breakfast"><![CDATA[D. Ask mommy for breakfast.]]></answer>
         </scene> 
+
+
+
+
 
         <scene id="scene_breakfast">
             <title><![CDATA[]]></title>
@@ -33,6 +37,82 @@
             <answer target="scene_three"><![CDATA[C. Ask your sister/brother to share the toy]]></answer>
         </scene> 
 
+
+
+
+
+
+
+        <scene id="scene_sneaking_snacks">
+            <title><![CDATA[Oh no!]]></title>
+            <story audio="audio/scene_sneaking_snacks_story_audio.m4a"><![CDATA[
+              Mommy caught you sneaking snacks without asking. Press the arrow on the top of the screen to find out what will happen next! 
+                ]]></story>
+            <background>images/scene_sneaking_snacks_bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question  audio="audio/scene_sneaking_snacks_question_audio.m4a"><![CDATA[
+                What will you do when Mommy catches you sneaking snacks?
+                ]]></question>
+            <answer target="scene_game_over_yell_hit"><![CDATA[A. Scream]]></answer>
+            <answer target="scene_game_over_yell_hit"><![CDATA[B. Cry]]></answer>
+            <answer target="scene_game_over_yell_hit"><![CDATA[C. Hit mommy]]></answer>
+            <answer target="scene_breakfast_invite"><![CDATA[D. Apologize and return the snacks you took]]></answer>
+        </scene> 
+
+
+
+
+
+
+
+        <scene id="scene_read_book">
+            <title><![CDATA[]]></title>
+            <story audio="audio/scene_read_book_story_audio.m4a"><![CDATA[
+              You're enjoying your book when Mommy sees you and tells you how adorable you are and how happy she is to see you reading.<br/><br/>She's so happy that she offers to make you your favorite breakfast.   <br/><br/>Press the arrow on the top of the screen to find out what will happen next!
+                ]]></story>
+            <background>images/scene_read_book_bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question  audio="audio/scene_breakfast_invite_question_audio.m4a"><![CDATA[
+                Will you accept the invitation for breakfast?
+                ]]></question>
+            <answer target="scene_breakfast"><![CDATA[A. Yes]]></answer>
+            <answer target="scene_nap"><![CDATA[B. No]]></answer>
+            
+        </scene> 
+
+
+
+
+
+
+
+
+
+        <scene id="scene_game_over_yell_hit">
+            <title><![CDATA[GAME OVER!]]></title>
+            <story audio="audio/scene_game_over_yell_hit_story_audio.m4a"><![CDATA[
+              This is not the right way to behave. Hitting or yelling is not nice. You made two bad choices in a row and you have to spend a long time out in your room.
+                ]]></story>
+            <background>images/scene_game_over_bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question  audio="audio/scene_game_over_yell_hit_question_audio.m4a"><![CDATA[
+                Would you like to start over?
+                ]]></question>
+            <answer target="scene_wakeup"><![CDATA[A. Yes]]></answer>
+            <answer target="scene_game_over_yell_hit"><![CDATA[B. No]]></answer>
+            
+        </scene>
+
        
+
+
+
+
     </scenes>
 </stage>
