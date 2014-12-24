@@ -2,7 +2,7 @@
 	<scenes cols="6">
 
 
-	    <scene id="scene_one">
+	    <scene id="scene_wakeup">
             <title><![CDATA[Hi my little Equestria Girl!]]></title>
             <story audio="audio/scene_one_story_audio.m4a"><![CDATA[I hope you slept well. Click the arrow on the top of the screen to start your adventure!]]></story>
         	<background>images/scene_one_bg.jpg</background>
@@ -13,13 +13,13 @@
             <answer target="scene_one"><![CDATA[A. Get some cookies from the cupboard]]></answer>
             <answer target="scene_two"><![CDATA[B. Read a book]]></answer>
             <answer target="scene_three"><![CDATA[C. Wake up your sister/brother ]]></answer>
-            <answer target="scene_two"><![CDATA[D. Ask mommy for breakfast.]]></answer>
+            <answer target="scene_breakfast"><![CDATA[D. Ask mommy for breakfast.]]></answer>
         </scene> 
 
-        <scene id="scene_two">
+        <scene id="scene_breakfast">
             <title><![CDATA[]]></title>
             <story audio="audio/scene_one_story_audio.m4a"><![CDATA[
-                You take a seat at the table and enjoy your favorite breakfast.<br/><br/>   After you finish eating, you notice that your sister/brother has left their favorite toy on the table. You've had your eye on this toy for a while now and you'd really like to have it for yourself.  <br/><br/>Press the arrow on the top of the screen to find out what will happen next!
+              You take a seat at the table and enjoy your favorite breakfast.<br/><br/>   After you finish eating, you notice that your sister/brother has left their favorite toy on the table. You've had your eye on this toy for a while now and you'd really like to have it for yourself.  <br/><br/>Press the arrow on the top of the screen to find out what will happen next!
                 ]]></story>
             <background>images/scene_two_bg.jpg</background>
             <extras>

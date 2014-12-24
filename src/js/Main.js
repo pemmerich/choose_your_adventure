@@ -63,8 +63,8 @@ function init()
 	$('#stage').append('\
 		<div class="character" id="main_character"></div>\
 		<div class="controls">\
-		 	<div class="story_btn"></div>\
-		 	<div class="choose_btn"></div>\
+		 	<div class="story_btn"><img src="images/story_icon.png" width="44px" height="44px"/></div>\
+		 	<div class="choose_btn"><img src="images/next_icon.png" width="44px" height="44px"/></div>\
 		</div>\
 		<div class="question">\
 			<div class="close" id="choose_close"></div>\
