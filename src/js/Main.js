@@ -40,7 +40,7 @@ function xmlParser(xml) {
     cols = $(xml).find("scenes").attr('cols');
     cols++;
     */
-    cols=0;
+    cols=1;
     console.log("cols = "+cols);
     $(xml).find("scene").each(function (i,elem) {
     	cols++;

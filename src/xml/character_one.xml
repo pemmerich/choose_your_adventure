@@ -83,6 +83,26 @@
 
 
 
+        <scene id="scene_happy_sybling">
+            <title><![CDATA[GOOD JOB!]]></title>
+            <story audio="audio/scene_happy_sybling_story_audio.m4a"><![CDATA[
+                Stealing is wrong, and the only way to make things right after you steal is to tell the truth and return what you've taken.  <br/><br/>This makes your sister feel much better! She feels so good that she invites you to play with her and use her favorite toy!
+                ]]></story>
+            <background>images/scene_happy_sybling_bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question  audio="audio/scene_happy_sybling_question_audio.m4a"><![CDATA[
+                Do you want to play with your sister and her favorite toy?
+                ]]></question>
+            <answer target="scene_win"><![CDATA[A. Yes]]></answer>
+            <answer target="scene_nap"><![CDATA[B. No]]></answer>
+        </scene> 
+
+
+
+
+
 
 
         <scene id="scene_sneaking_snacks">
@@ -182,7 +202,7 @@
                 Will you take a nap?
                 ]]></question>
             <answer target="scene_wakeup"><![CDATA[A. Yes]]></answer>
-            <answer target=""><![CDATA[B. No]]></answer>
+            <answer target="scene_game_over_yell_hit"><![CDATA[B. No]]></answer>
             
         </scene> 
 
@@ -226,7 +246,30 @@
                 Would you like to start over?
                 ]]></question>
             <answer target="scene_wakeup"><![CDATA[A. Yes]]></answer>
-            <answer target="scene_game_over_yell_hit"><![CDATA[B. No]]></answer>
+            <answer target=""><![CDATA[B. No]]></answer>
+            
+        </scene>
+
+
+
+
+
+
+
+        <scene id="scene_game_over_stealing">
+            <title><![CDATA[GAME OVER!]]></title>
+            <story audio="audio/scene_game_over_stealing_story_audio.m4a"><![CDATA[
+                Stealing is wrong. The only thing worse than stealing is lying to cover it up.  <br/><br/>Your mom finds the toy hidden in your bed and you have to lose one of your favorite toys, and stay in your room for the rest of the night.
+                ]]></story>
+            <background>images/scene_game_over_bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question  audio="audio/scene_game_over_stealing_question_audio.m4a"><![CDATA[
+                Would you like to start over?
+                ]]></question>
+            <answer target="scene_wakeup"><![CDATA[A. Yes]]></answer>
+            <answer target=""><![CDATA[B. No]]></answer>
             
         </scene>
 
