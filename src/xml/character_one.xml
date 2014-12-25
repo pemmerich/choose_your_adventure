@@ -1,5 +1,5 @@
 <stage>
-	<scenes cols="6">
+	<scenes cols="">
 
 
 	    <scene id="scene_wakeup">
@@ -12,7 +12,7 @@
             <question  audio="audio/scene_one_question_audio.m4a"><![CDATA[Now that you're awake, how would you like to start your day? ]]></question>
             <answer target="scene_sneaking_snacks"><![CDATA[A. Get some cookies from the cupboard]]></answer>
             <answer target="scene_read_book"><![CDATA[B. Read a book]]></answer>
-            <answer target="scene_three"><![CDATA[C. Wake up your sister/brother ]]></answer>
+            <answer target="scene_wakeup_sybling"><![CDATA[C. Wake up your sister ]]></answer>
             <answer target="scene_breakfast"><![CDATA[D. Ask mommy for breakfast.]]></answer>
         </scene> 
 
@@ -23,7 +23,7 @@
         <scene id="scene_breakfast">
             <title><![CDATA[]]></title>
             <story audio="audio/scene_one_story_audio.m4a"><![CDATA[
-              You take a seat at the table and enjoy your favorite breakfast.<br/><br/>   After you finish eating, you notice that your sister/brother has left their favorite toy on the table. You've had your eye on this toy for a while now and you'd really like to have it for yourself.  <br/><br/>Press the arrow on the top of the screen to find out what will happen next!
+              You take a seat at the table and enjoy your favorite breakfast.<br/><br/>   After you finish eating, you notice that your sister has left her favorite toy on the table. You've had your eye on this toy for a while now and you'd really like to have it for yourself.  <br/><br/>Press the arrow on the top of the screen to find out what will happen next!
                 ]]></story>
             <background>images/scene_two_bg.jpg</background>
             <extras>
@@ -32,9 +32,51 @@
             <question  audio="audio/scene_one_question_audio.m4a"><![CDATA[
                 What will you do with the toy?
                 ]]></question>
-            <answer target="scene_one"><![CDATA[A. Take the toy for yourself]]></answer>
-            <answer target="scene_two"><![CDATA[B. Leave the toy on the table]]></answer>
-            <answer target="scene_three"><![CDATA[C. Ask your sister/brother to share the toy]]></answer>
+            <answer target="scene_hide_toy"><![CDATA[A. Take the toy for yourself]]></answer>
+            <answer target="scene_leave_toy"><![CDATA[B. Leave the toy on the table]]></answer>
+            <answer target="scene_win"><![CDATA[C. Ask your sister to share the toy]]></answer>
+        </scene> 
+
+
+
+
+
+
+        <scene id="scene_leave_toy">
+            <title><![CDATA[]]></title>
+            <story audio="audio/scene_leave_toy_story_audio.m4a"><![CDATA[
+                After you leave the toy on the table, your sister asks if you want to play with her favorite toy. 
+                ]]></story>
+            <background>images/scene_leave_toy_bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question  audio="audio/scene_leave_toy_question_audio.m4a"><![CDATA[
+                Do you want to play with your sister and her favorite toy?
+                ]]></question>
+            <answer target="scene_win"><![CDATA[A. Yes]]></answer>
+            <answer target="scene_nap"><![CDATA[B. No]]></answer>
+        </scene>
+
+
+
+
+
+        <scene id="scene_hide_toy">
+            <title><![CDATA[]]></title>
+            <story audio="audio/scene_hide_toy_story_audio.m4a"><![CDATA[
+                You take the toy and hide it in your room so that nobody will be able to find it.  <br/><br/>When your sister notices her toy is missing she becomes very sad. 
+                ]]></story>
+            <background>images/scene_hide_toy_bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question  audio="audio/scene_hide_toy_question_audio.m4a"><![CDATA[
+                What will you do when you see how upset your sister is? 
+                ]]></question>
+            <answer target="scene_game_over_stealing"><![CDATA[A. Pretend you don't know where the toy is]]></answer>
+            <answer target="scene_game_over_stealing"><![CDATA[B. Say that you saw the toy on your sister's bed]]></answer>
+            <answer target="scene_happy_sybling"><![CDATA[C. Tell the truth and return the toy]]></answer>
         </scene> 
 
 
@@ -58,7 +100,7 @@
             <answer target="scene_game_over_yell_hit"><![CDATA[A. Scream]]></answer>
             <answer target="scene_game_over_yell_hit"><![CDATA[B. Cry]]></answer>
             <answer target="scene_game_over_yell_hit"><![CDATA[C. Hit mommy]]></answer>
-            <answer target="scene_breakfast_invite"><![CDATA[D. Apologize and return the snacks you took]]></answer>
+            <answer target="scene_responsability"><![CDATA[D. Apologize and return the snacks you took]]></answer>
         </scene> 
 
 
@@ -76,14 +118,93 @@
             <extras>
                 <extra x="10" y="10" height="200" width="100">extra1.png</extra>
             </extras>
-            <question  audio="audio/scene_breakfast_invite_question_audio.m4a"><![CDATA[
+            <question  audio="audio/scene_read_book_question_audio.m4a"><![CDATA[
                 Will you accept the invitation for breakfast?
                 ]]></question>
             <answer target="scene_breakfast"><![CDATA[A. Yes]]></answer>
             <answer target="scene_nap"><![CDATA[B. No]]></answer>
             
+        </scene>
+
+
+        <scene id="scene_wakeup_sybling">
+            <title><![CDATA[Oh no!]]></title>
+            <story audio="audio/scene_wakeup_sybling_story_audio.m4a"><![CDATA[
+                Your sister is very sleepy and not ready to wake up. Now they're upset with you.<br/><br/> Press the arrow on the top of the screen to find out what will happen next!
+                ]]></story>
+            <background>images/scene_wakeup_sybling_bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question  audio="audio/scene_wakeup_sybling_question_audio.m4a"><![CDATA[
+                What will you do when you see that your sister is upset? 
+                ]]></question>
+            <answer target="scene_responsability"><![CDATA[A. Apologize for waking them up]]></answer>
+            <answer target="scene_game_over_yell_hit"><![CDATA[B. Yell at them]]></answer>
+            <answer target="scene_game_over_yell_hit"><![CDATA[C. Hit them]]></answer>
+            
+        </scene>
+
+
+
+
+
+        <scene id="scene_responsability">
+            <title><![CDATA[GOOD JOB!]]></title>
+            <story audio="audio/scene_responsability_story_audio.m4a"><![CDATA[
+                Mommy loves when her little Equestria girls take responsibility for their actions and apologize when they do something wrong. Because Mommy is so happy with you, she offers to make you your favorite breakfast. 
+                ]]></story>
+            <background>images/scene_responsability_bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question  audio="audio/scene_responsability_question_audio.m4a"><![CDATA[
+                Will you accept the invitation for breakfast?
+                ]]></question>
+            <answer target="scene_breakfast"><![CDATA[A. Yes]]></answer>
+            <answer target="scene_nap"><![CDATA[B. No]]></answer>
+            
+        </scene>
+
+
+
+
+        <scene id="scene_nap">
+            <title><![CDATA[]]></title>
+            <story audio="audio/scene_nap_story_audio.m4a"><![CDATA[
+                You don't seem to be feeling well. You should take a nap.
+                ]]></story>
+            <background>images/scene_nap_bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question  audio="audio/scene_nap_question_audio.m4a"><![CDATA[
+                Will you take a nap?
+                ]]></question>
+            <answer target="scene_wakeup"><![CDATA[A. Yes]]></answer>
+            <answer target=""><![CDATA[B. No]]></answer>
+            
         </scene> 
 
+
+
+
+        <scene id="scene_win">
+            <title><![CDATA[YOU WIN!]]></title>
+            <story audio="audio/scene_win_story_audio.m4a"><![CDATA[
+                You have behaved well and made all the right choices to be a good little Equestria Girl!<br/><br/>  You and your sister have a great time sharing all your toys.<br/><br/>You feel good because you did the right thing and because you made your sister feel happy.  
+                ]]></story>
+            <background>images/scene_win_bg.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+            <question  audio="audio/scene_win_question_audio.m4a"><![CDATA[
+                Would you like to start over?
+                ]]></question>
+            <answer target="scene_wakeup"><![CDATA[A. Yes]]></answer>
+            <answer target=""><![CDATA[B. No]]></answer>
+            
+        </scene>
 
 
 
@@ -95,7 +216,7 @@
         <scene id="scene_game_over_yell_hit">
             <title><![CDATA[GAME OVER!]]></title>
             <story audio="audio/scene_game_over_yell_hit_story_audio.m4a"><![CDATA[
-              This is not the right way to behave. Hitting or yelling is not nice. You made two bad choices in a row and you have to spend a long time out in your room.
+              This is not the right way to behave. Hitting or yelling is not nice. You need a long time out in your room  .<br/><br/>If you're tired you should take a nap.
                 ]]></story>
             <background>images/scene_game_over_bg.jpg</background>
             <extras>

@@ -36,11 +36,14 @@ $(window).resize(function() {
 
 function xmlParser(xml) {
 	var self=this;
+	/*
     cols = $(xml).find("scenes").attr('cols');
     cols++;
+    */
+    cols=0;
     console.log("cols = "+cols);
     $(xml).find("scene").each(function (i,elem) {
-    	
+    	cols++;
     	var scene = new Scene($(this));
     	scenes.push(scene);
     	 
