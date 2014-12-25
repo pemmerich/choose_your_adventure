@@ -7,6 +7,7 @@ var menuTransitionTime = 600;
 var stageHeight;
 var stageWidth;
 var curSceneID;
+var audioElement;
 
 document.write("<script src='js/Scene.js' type='text/javascript' charset='UTF-8'></script>");
 
@@ -173,7 +174,9 @@ function characterClick(e)
 {
 	var id = $(e.target).attr("id");
 	console.log("character click "+id);
-	loadStory(id);
+	if(id!="main_character"){
+		loadStory(id);
+	}
 }
 
 function loadStory(id)
@@ -281,6 +284,10 @@ function layoutScenes()
 function goToScene(id)
 {
 	console.log("go to scene = "+id);
+	if(audioElement){
+		audioElement.pause();
+	}
+
 	var scene = getSceneForID(id); 
 	
 	var stageX = ($("#scenes").position().left);
@@ -427,12 +434,19 @@ function playSound(sound)
 {
 	console.log("play sound "+sound);
 
-	var audioElement = document.createElement('audio');
+		if(audioElement){
+			audioElement.pause();
+		}
+
+		audioElement = document.createElement('audio');
         audioElement.setAttribute('src', sound);
         //audioElement.setAttribute('autoplay', 'autoplay');
         audioElement.play();
-        audioElement = null;
+        //audioElement = null;
+        console.log("audio element ="+audioElement)
 }
+
+
 
 function adjustLayout()
 {

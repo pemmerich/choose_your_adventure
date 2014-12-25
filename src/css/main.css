@@ -142,7 +142,8 @@ body, html
 }
 .close:after
 {
-	content: "X";
+	content: "➜";
+	font-size: 26px;
 	display: block;
 	position: relative;
 	text-align: center;
@@ -354,8 +355,8 @@ body, html
 #characters
 {
 	position: absolute;
-	left:0%;
-	bottom:10%;
+	left:-5%;
+	bottom:45%;
 	width: 100%;
 	height:25%;
 
@@ -376,12 +377,15 @@ body, html
 
 #character_two
 {
+	margin-left: 20%;
 	background-image: url('../images/character_two.png');
 	
 }
 
 #character_three
 {
+	margin-left: 60%;
+	margin-top: -15%;
 	background-image: url('../images/character_three.png');
 	
 }
