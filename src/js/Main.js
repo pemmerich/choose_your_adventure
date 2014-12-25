@@ -2,8 +2,8 @@
 var scenes=[];
 var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 var cols;
-var stageTransitionTime = 600;
-var menuTransitionTime = 300;
+var stageTransitionTime = 0;
+var menuTransitionTime = 600;
 var stageHeight;
 var stageWidth;
 var curSceneID;
@@ -123,11 +123,13 @@ function init()
     	"transition":"opacity "+menuTransitionTime+"ms ease-out"
 	});
 
+	/*
 	$('#scenes').css({
     	"-webkit-transition":"-webkit-transform "+stageTransitionTime+"ms ease-out",
     	"-ms-transition":"-ms-transform "+stageTransitionTime+"ms ease-out",
     	"transition":"transform "+stageTransitionTime+"ms ease-out"
 	});
+*/
 
 	$('.story').css({
     	"-webkit-transition":"-webkit-transform "+menuTransitionTime+"ms ease-out",
@@ -180,7 +182,7 @@ function characterClick(e)
 		loadStory(id);
 		setTimeout(function(){
 			playSound("audio/scene_wakeup_story_audio.m4a");
-		},0);
+		},menuTransitionTime);
 		
 	}
 }
@@ -270,19 +272,19 @@ function layoutScenes()
 
 		 //hide characters selection
 		 $("#characters").addClass("fadeout");
+		
+		 $("#main_character").addClass("rock_animation_right");
 		 //show main character
 		 $('#main_character').css({"display":"inline"});
 		 
-		 setTimeout(function(){
-		 	//show main character
-		 	$("#main_character").removeClass("fadeout");
-		 	setTimeout(function(){
-		 		$("#main_character").addClass("fadein");
+		 
 		 		setTimeout(function(){
+		 			
+		 			$("#main_character").removeClass("fadeout");
 		 			goToScene(firstID);
 		 		}, menuTransitionTime );
-		 	},10);
-		 }, menuTransitionTime );
+		 	
+		 
 
 		adjustLayout(); 
 }
@@ -306,16 +308,20 @@ function goToScene(id)
 	var destX = stageX-sceneX;
 	var destY = stageY-sceneY;
 
+	/*
 	if(destX > stageX){
 		$("#main_character").addClass("rock_animation_left");
 	}else{
 		$("#main_character").addClass("rock_animation_right");
 	}
-	
+	*/
+	$("#main_character").addClass("fadein");
+
 	//have to set delay to match at least the time for transitions in css, probably a little bit longer in case they want to look at the stage first
 	setTimeout(function(){
 		showStory(scene.id);
-
+		$("#main_character").removeClass("rock_animation_right");
+		/*
 		$("#main_character").removeClass("rock_animation_left");
 		$("#main_character").removeClass("rock_animation_right");
 		if(destX > stageX){
@@ -323,7 +329,8 @@ function goToScene(id)
 		}else{
 			$("#main_character").removeClass("flip_horizontal");
 		}
-	}, stageTransitionTime );
+		*/
+	}, menuTransitionTime );
 	
 
 
@@ -340,11 +347,11 @@ function goToScene(id)
 	*/
 
 	$('#scenes').css({
-    	"webkitTransform":"translateX("+destX+"px) translateY("+destY+"px) translateZ(0px)",
-    	"MozTransform":"translateX("+destX+"px) translateY("+destY+"px) translateZ(0px)",
-    	"msTransform":"translateX("+destX+"px) translateY("+destY+"px) translateZ(0px)",
-    	"OTransform":"translateX("+destX+"px) translateY("+destY+"px) translateZ(0px)",
-    	"transform":"translateX("+destX+"px) translateY("+destY+"px) translateZ(0px)"
+    	"webkitTransform":"translateX("+destX+"px) translateY("+destY+"px)",
+    	"MozTransform":"translateX("+destX+"px) translateY("+destY+"px)",
+    	"msTransform":"translateX("+destX+"px) translateY("+destY+"px)",
+    	"OTransform":"translateX("+destX+"px) translateY("+destY+"px)",
+    	"transform":"translateX("+destX+"px) translateY("+destY+"px)"
 	});
 
 	curSceneID = id;
@@ -400,6 +407,10 @@ function showQuestion(id)
     			"OTransform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)",
     			"transform":"translateX(0px) translateY(-"+stageHeight+"px) translateZ(0px)"
 			});
+
+			$("#main_character").removeClass("fadein");
+			$("#main_character").addClass("fadeout");
+			$("#main_character").addClass("rock_animation_right");
 			setTimeout(function(){
 				$(e.target).parent().parent().css({"display":"none"});
 				self.goToScene(ans.target);
@@ -413,7 +424,7 @@ function showQuestion(id)
 				
 				
 
-			},stageTransitionTime );
+			},menuTransitionTime);
     			
 		});
 

@@ -67,22 +67,7 @@ body, html
 	padding:0px;
 	margin:0px;
 
-	-webkit-transform-style:preserve-3d;
-	-webkit-backface-visibility:hidden;
-	-webkit-perspective:1000;
-  	/*-webkit-transition:-webkit-transform 600ms ease-out;*/
-
-
-  	-ms-transform-style:preserve-3d;
-  	-ms-backface-visibility:hidden;
-  	-ms-perspective:1000;
-  	/*-ms-transition:-ms-transform 600ms ease-out;*/
-  
-
-  	transform-style:preserve-3d;
-  	backface-visibility:hidden;
-  	perspective:1000;
-  	/*transition:transform 600ms ease-out;*/
+	
 }
 
 .scene
@@ -108,6 +93,7 @@ body, html
 	padding: 0px;
 	margin:0px;
 	overflow: hidden;
+
 }
 
 .scene_content img
@@ -240,22 +226,7 @@ body, html
 	font-size: 20px;
 	z-index:4;
 	
-	-webkit-transform-style:preserve-3d;
-	-webkit-backface-visibility:hidden;
-	-webkit-perspective:1000;
-  	/*-webkit-transition:-webkit-transform 600ms ease-out;*/
-
-
-  	-ms-transform-style:preserve-3d;
-  	-ms-backface-visibility:hidden;
-  	-ms-perspective:1000;
-  	/*-ms-transition:-ms-transform 600ms ease-out;*/
-  
-
-  	transform-style:preserve-3d;
-  	backface-visibility:hidden;
-  	perspective:1000;
-  	/*transition:transform 600ms ease-out;*/
+	
 }
 
 .story  p 
@@ -282,22 +253,7 @@ body, html
 	font-size: 20px;
 	z-index:3;
 
-	-webkit-transform-style:preserve-3d;
-	-webkit-backface-visibility:hidden;
-	-webkit-perspective:1000;
-  	/*-webkit-transition:-webkit-transform 600ms ease-out;*/
-
-
-  	-ms-transform-style:preserve-3d;
-  	-ms-backface-visibility:hidden;
-  	-ms-perspective:1000;
-  	/*-ms-transition:-ms-transform 600ms ease-out;*/
-  
-
-  	transform-style:preserve-3d;
-  	backface-visibility:hidden;
-  	perspective:1000;
-  	/*transition:transform 600ms ease-out;*/
+	
 }
 
 .question p 
