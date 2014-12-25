@@ -4,12 +4,12 @@
 
 	    <scene id="scene_wakeup">
             <title><![CDATA[Hi my little Equestria Girl!]]></title>
-            <story audio="audio/scene_one_story_audio.m4a"><![CDATA[I hope you slept well. Click the arrow on the top of the screen to start your adventure!]]></story>
+            <story audio="audio/scene_wakeup_story_audio.m4a"><![CDATA[I hope you slept well. Click the arrow on the top of the screen to start your adventure!]]></story>
         	<background>images/scene_one_bg.jpg</background>
             <extras>
                 <extra x="10" y="10" height="200" width="100">extra1.png</extra>
             </extras>
-            <question  audio="audio/scene_one_question_audio.m4a"><![CDATA[Now that you're awake, how would you like to start your day? ]]></question>
+            <question  audio="audio/scene_wakeup_question_audio.m4a"><![CDATA[Now that you're awake, how would you like to start your day? ]]></question>
             <answer target="scene_sneaking_snacks"><![CDATA[A. Get some cookies from the cupboard]]></answer>
             <answer target="scene_read_book"><![CDATA[B. Read a book]]></answer>
             <answer target="scene_wakeup_sybling"><![CDATA[C. Wake up your sister ]]></answer>
@@ -22,14 +22,14 @@
 
         <scene id="scene_breakfast">
             <title><![CDATA[]]></title>
-            <story audio="audio/scene_one_story_audio.m4a"><![CDATA[
+            <story audio="audio/scene_breakfast_story_audio.m4a"><![CDATA[
               You take a seat at the table and enjoy your favorite breakfast.<br/><br/>   After you finish eating, you notice that your sister has left her favorite toy on the table. You've had your eye on this toy for a while now and you'd really like to have it for yourself.  <br/><br/>Press the arrow on the top of the screen to find out what will happen next!
                 ]]></story>
             <background>images/scene_two_bg.jpg</background>
             <extras>
                 <extra x="10" y="10" height="200" width="100">extra1.png</extra>
             </extras>
-            <question  audio="audio/scene_one_question_audio.m4a"><![CDATA[
+            <question  audio="audio/scene_breakfast_question_audio.m4a"><![CDATA[
                 What will you do with the toy?
                 ]]></question>
             <answer target="scene_hide_toy"><![CDATA[A. Take the toy for yourself]]></answer>
@@ -150,7 +150,7 @@
         <scene id="scene_wakeup_sybling">
             <title><![CDATA[Oh no!]]></title>
             <story audio="audio/scene_wakeup_sybling_story_audio.m4a"><![CDATA[
-                Your sister is very sleepy and not ready to wake up. Now they're upset with you.<br/><br/> Press the arrow on the top of the screen to find out what will happen next!
+                Your sister is very sleepy and not ready to wake up. Now she's upset with you.<br/><br/> Press the arrow on the top of the screen to find out what will happen next!
                 ]]></story>
             <background>images/scene_wakeup_sybling_bg.jpg</background>
             <extras>
@@ -159,9 +159,9 @@
             <question  audio="audio/scene_wakeup_sybling_question_audio.m4a"><![CDATA[
                 What will you do when you see that your sister is upset? 
                 ]]></question>
-            <answer target="scene_responsability"><![CDATA[A. Apologize for waking them up]]></answer>
-            <answer target="scene_game_over_yell_hit"><![CDATA[B. Yell at them]]></answer>
-            <answer target="scene_game_over_yell_hit"><![CDATA[C. Hit them]]></answer>
+            <answer target="scene_responsability"><![CDATA[A. Apologize for waking her up]]></answer>
+            <answer target="scene_game_over_yell_hit"><![CDATA[B. Yell at her]]></answer>
+            <answer target="scene_game_over_yell_hit"><![CDATA[C. Hit her]]></answer>
             
         </scene>
 
