@@ -2,8 +2,8 @@
 var scenes=[];
 var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 var cols;
-var stageTransitionTime = 1000;
-var menuTransitionTime = 600;
+var stageTransitionTime = 600;
+var menuTransitionTime = 300;
 var stageHeight;
 var stageWidth;
 var curSceneID;
@@ -102,6 +102,7 @@ function init()
 
 	//choose close click
 	$('.character').on('click', function(e) {
+		
 		characterClick(e);	
 	});
 
@@ -172,10 +173,15 @@ function init()
 
 function characterClick(e)
 {
+
 	var id = $(e.target).attr("id");
 	console.log("character click "+id);
 	if(id!="main_character"){
 		loadStory(id);
+		setTimeout(function(){
+			playSound("audio/scene_wakeup_story_audio.m4a");
+		},0);
+		
 	}
 }
 
@@ -283,13 +289,14 @@ function layoutScenes()
 
 function goToScene(id)
 {
+
+
 	console.log("go to scene = "+id);
-	if(audioElement){
-		audioElement.pause();
-	}
+	
 
 	var scene = getSceneForID(id); 
 	
+
 	var stageX = ($("#scenes").position().left);
 	var stageY = ($("#scenes").position().top);
 
@@ -308,6 +315,7 @@ function goToScene(id)
 	//have to set delay to match at least the time for transitions in css, probably a little bit longer in case they want to look at the stage first
 	setTimeout(function(){
 		showStory(scene.id);
+
 		$("#main_character").removeClass("rock_animation_left");
 		$("#main_character").removeClass("rock_animation_right");
 		if(destX > stageX){
@@ -364,7 +372,7 @@ function showStory(id)
 		});
 		$('.controls').hide();
 		//play sound
-		playSound(scene.storyAudio);
+		//playSound(scene.storyAudio);
 	},100);
 	
 }
@@ -395,7 +403,17 @@ function showQuestion(id)
 			setTimeout(function(){
 				$(e.target).parent().parent().css({"display":"none"});
 				self.goToScene(ans.target);
-			},menuTransitionTime );
+
+				
+					var scene = getSceneForID(ans.target);
+					if(audioElement){
+						audioElement.pause();
+					}
+					playSound(scene.storyAudio);
+				
+				
+
+			},stageTransitionTime );
     			
 		});
 
@@ -429,6 +447,7 @@ function getSceneForID(id)
 	});
 	return scene;
 }
+
 
 function playSound(sound)
 {
